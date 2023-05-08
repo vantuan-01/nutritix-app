@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 import DefaultLayout from '~/Layout/DefaultLayout'
 import { Fragment } from 'react'
+import Header from './components/Header/Header'
 import { publicRoutes } from '~/routes'
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
             let Layout = DefaultLayout
             if (route.layout) {
               Layout = route.layout
-            } else if (route.layout === null) {
-              Layout = DefaultLayout
+            } 
+            else if (route.layout === null) {
+              Layout = Fragment;
             }
             const Page = route.component
             return (

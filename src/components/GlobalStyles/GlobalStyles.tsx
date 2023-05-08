@@ -1,5 +1,7 @@
 import './GlobalStyles.module.scss'
 
+import { Fragment } from 'react'
+
 interface GlobalStylesProps {
   children: React.ReactNode
 }
