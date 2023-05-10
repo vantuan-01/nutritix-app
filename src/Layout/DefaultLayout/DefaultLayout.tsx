@@ -1,13 +1,8 @@
 import Footer from '~/components/Footer';
 import Header from '~/components/Header';
-import React from 'react';
 import styles from '~/components/GlobalStyles/GlobalStyles.module.scss'
 
-interface DefaultLayoutProps {
-  children: React.ReactNode
-}
-
-function DefaultLayout({ children }: DefaultLayoutProps) {
+function DefaultLayout({ children }: any) {
   return (
     <div className={styles.wrapper}>
       <Header />

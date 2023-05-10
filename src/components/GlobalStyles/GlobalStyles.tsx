@@ -1,12 +1,6 @@
 import './GlobalStyles.module.scss'
 
-import { Fragment } from 'react'
-
-interface GlobalStylesProps {
-  children: React.ReactNode
-}
-
-function GlobalStyles({ children }: GlobalStylesProps) {
+function GlobalStyles({ children }: any) {
   return <>{children}</>
 }
 

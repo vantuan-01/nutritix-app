@@ -1,7 +1,6 @@
-import DefaultLayout from '~/Layout/DefaultLayout'
+import { FunctionComponent } from 'react';
 import Home from '~/Pages/Home'
 import Product from '~/Pages/Home/Product'
-import { ReactNode } from 'react'
 
 const configroutes = {
   home: '/',
@@ -13,7 +12,13 @@ const configroutes = {
   notfound404: '/notfound404'
 }
 
-const publicRoutes = [
+interface RouteConfig {
+  path: string; 
+  component: FunctionComponent;
+  layout?: any;
+}
+
+const publicRoutes: RouteConfig[] = [
   { path: configroutes.home, component: Home },
   { path: configroutes.shops, component: Product }
 ]
