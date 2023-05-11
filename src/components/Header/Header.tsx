@@ -9,12 +9,16 @@ import {
 import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import LoginForm from '~/components/LoginForm'
 import Logo from '~/assets/Logo'
+import Tooltip from '~/components/Portal'
 import { configroutes as config } from '~/routes/routes'
 import { navlink as nlink } from '~/config/navlink'
 import styles from './Header.module.scss'
+import { useState } from 'react'
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className={styles.wrapper}>
       <div className={styles.top_header}>
@@ -47,8 +51,15 @@ function Header() {
         </div>
         <div className={styles.user_group}>
           <div className={styles.user_account}>
-            <FontAwesomeIcon icon={faUser} size='lg' />
-            <span>Sign In / Register </span>
+            <button onClick={() => setIsOpen(!isOpen)}>
+              <FontAwesomeIcon icon={faUser} size='lg' />
+              <span>Sign In / Register </span>
+            </button>
+            {isOpen && (
+              <Tooltip id='signin' top='8rem' right='13rem'>
+                <LoginForm />
+              </Tooltip>
+            )}
           </div>
           <div className={styles.love}>
             <FontAwesomeIcon icon={faHeart} size='lg' />
@@ -72,7 +83,7 @@ function Header() {
             <span>Easy returns on all orders</span>
           </div>
           <div className={styles.content}>
-            <FontAwesomeIcon icon={faHeadphones} size='lg'/>
+            <FontAwesomeIcon icon={faHeadphones} size='lg' />
             <span>24/7 Customer support</span>
           </div>
         </div>

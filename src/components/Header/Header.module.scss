@@ -12,7 +12,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2rem;
+      li {
+        list-style: none;
+        a {
+          display: inline-block;
+          padding: 3rem;
+        }
+      }
       .nav_link_default {
         font-family: var(--heading-text);
         font-style: italic;
@@ -92,15 +98,22 @@
         }
       }
       .user_account {
-        cursor: pointer;
-        svg {
-          margin-right: 1rem;
-        }
-        span {
-          font-family: var(--content-text);
-          color: #888;
+        button {
+          cursor: pointer;
+          background-color: transparent;
+          border: none;
+          svg {
+            margin-right: 1rem;
+          }
+          span {
+            font-family: var(--content-text);
+            color: #888;
+          }
         }
         &:hover {
+          span {
+            text-decoration: underline;
+          }
           span,
           svg > path {
             color: var(--primary);
@@ -183,6 +196,11 @@
         span {
           font-size: 1.4rem;
           font-weight: 600;
+        }
+        &:hover {
+          svg {
+            transform: scale(0.7);
+          }
         }
         &:nth-child(2) {
           position: relative;
