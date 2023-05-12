@@ -1,14 +1,87 @@
-.wrapper{
-  .container{
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.wrapper {
+  .container {
+    width: 32rem;
+    max-height: 50rem;
     background-color: #fff;
-    .header{
-
+    padding: 2rem;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 2rem;
+        color: #333;
+      }
+      button {
+        font-size: 1.4rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: GlobalStyles.$heading-text;
+        &:hover {
+          outline: none;
+        }
+      }
     }
-    .body{
-
+    .body {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      color: GlobalStyles.$content-text-color;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      .content {
+        width: 100%;
+        padding: 0.8rem 0;
+        label {
+          display: block;
+          margin-bottom: 0.3rem;
+          .required {
+            color: GlobalStyles.$primary;
+          }
+        }
+        input {
+          width: 100%;
+          padding: 1.2rem;
+          border: 0.1rem solid #e8e8e8;
+          border-radius: 0.3rem;
+          &:focus {
+            outline: 0.1rem solid #000;
+            &::placeholder {
+              transition: all 1000ms ease-in-out;
+              color: transparent;
+            }
+          }
+        }
+      }
+      .login_btn {
+        width: 95%;
+        margin-top: 1rem;
+        padding: 1rem 0;
+        transform: skew(-10deg);
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        background-color: #000;
+        color: #fff;
+        border-radius: .3rem;
+        span {
+          display: inline-block;
+          transform: skew(10deg);
+        }
+      }
     }
-    .footer{
-
+    .footer {
+      display: flex;
+      justify-content: end;
+      button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
     }
   }
 }

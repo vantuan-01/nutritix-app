@@ -2,15 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-:root{
-  --heading-text: 'Oswald', sans-serif;
-  --heading-text-color: #151515;
-  --content-text: 'Plus Jakarta Sans', sans-serif;
-  --content-text-color: #464646;
-  --content-text-light-color: #888888;
-  --primary: #F65000;
-  --primary_hover: #DD4800;
-}
+  $heading-text: 'Oswald', sans-serif;
+  $heading-text-color: #151515;
+  $content-text: 'Plus Jakarta Sans', sans-serif;
+  $content-text-color: #464646;
+  $content-text-light-color: #888888;
+  $primary: #F65000;
+  $primary_hover: #DD4800;
 
 *{
     margin: 0;
@@ -27,4 +25,5 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    font-family: $content-text;
 }

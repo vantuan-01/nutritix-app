@@ -1,3 +1,5 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
 .wrapper {
   .top_header {
     background-color: #000;
@@ -20,7 +22,7 @@
         }
       }
       .nav_link_default {
-        font-family: var(--heading-text);
+        font-family: GlobalStyles.$heading-text;
         font-style: italic;
         font-size: 2rem;
         font-weight: 700;
@@ -37,9 +39,9 @@
           transform: skewX(-15deg);
         }
         &:hover {
-          color: var(--primary);
+          color: GlobalStyles.$primary;
           &::after {
-            background-color: var(--primary);
+            background-color: GlobalStyles.$primary;
           }
         }
       }
@@ -51,7 +53,7 @@
           margin-left: 0.7rem;
           width: 0.6rem;
           height: 0.6rem;
-          background-color: var(--primary);
+          background-color: GlobalStyles.$primary;
           transform: skewX(-15deg);
         }
       }
@@ -59,7 +61,7 @@
     .search_bar {
       width: 20%;
       height: 40%;
-      font-family: var(--content-text);
+      font-family: GlobalStyles.$content-text;
       font-size: 1.4rem;
       border-radius: 0.3rem;
       transform: skewX(-10deg);
@@ -82,6 +84,7 @@
         height: 100%;
         border: none;
         background-color: transparent;
+        transform: skewX(10deg);
       }
     }
     .user_group {
@@ -93,7 +96,7 @@
         }
         &:hover {
           path {
-            color: var(--primary);
+            color: GlobalStyles.$primary;
           }
         }
       }
@@ -106,7 +109,7 @@
             margin-right: 1rem;
           }
           span {
-            font-family: var(--content-text);
+            font-family: GlobalStyles.$content-text;
             color: #888;
           }
         }
@@ -116,7 +119,7 @@
           }
           span,
           svg > path {
-            color: var(--primary);
+            color: GlobalStyles.$primary;
           }
         }
       }
@@ -137,7 +140,7 @@
           letter-spacing: 0;
           border-radius: 50%;
           color: #fff;
-          background-color: var(--primary);
+          background-color: GlobalStyles.$primary;
         }
       }
       .cart {
@@ -157,13 +160,13 @@
           letter-spacing: 0;
           border-radius: 50%;
           color: #fff;
-          background-color: var(--primary);
+          background-color: GlobalStyles.$primary;
         }
       }
     }
   }
   .bot_header {
-    font-family: var(--content-text);
+    font-family: GlobalStyles.$content-text;
     position: relative;
     min-height: 5rem;
     display: flex;
@@ -175,7 +178,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      background-color: var(--primary);
+      background-color: GlobalStyles.$primary;
       opacity: 0.15;
       z-index: -1;
     }
@@ -190,7 +193,7 @@
         svg {
           margin-right: 1rem;
           path {
-            color: var(--primary);
+            color: GlobalStyles.$primary;
           }
         }
         span {

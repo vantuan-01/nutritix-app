@@ -56,7 +56,7 @@ function Header() {
               <span>Sign In / Register </span>
             </button>
             {isOpen && (
-              <Tooltip id='signin' top='8rem' right='13rem'>
+              <Tooltip id='signin' top='8rem' right='12rem'>
                 <LoginForm />
               </Tooltip>
             )}

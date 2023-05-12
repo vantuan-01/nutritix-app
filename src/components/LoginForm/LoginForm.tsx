@@ -10,14 +10,22 @@ function LoginForm() {
         </div>
         <div className={styles.body}>
           <div className={styles.content}>
-            <label htmlFor='username'>User name or email</label>
+            <label htmlFor='username'>
+              User name or email
+              <span className={styles.required}>*</span>
+            </label>
             <input type='text' name='username' placeholder='User name' />
           </div>
           <div className={styles.content}>
-            <label htmlFor='password'>Password</label>
+            <label htmlFor='password'>
+              Password
+              <span className={styles.required}>*</span>
+            </label>
             <input type='text' name='password' placeholder='Password' />
           </div>
-          <button className={styles.login_btn}>login</button>
+          <button className={styles.login_btn}>
+            <span>login</span>
+          </button>
         </div>
         <div className={styles.footer}>
           <button>Lost your password?</button>

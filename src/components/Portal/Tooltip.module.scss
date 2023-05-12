@@ -1,4 +1,6 @@
+@use "~/components/GlobalStyles/GlobalStyles.module.scss";
+
 .wrapper{
-  border-top: .2rem solid var(--primary);
+  border-top: .2rem solid GlobalStyles.$primary;
   position: absolute;
 }
