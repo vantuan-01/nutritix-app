@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import Home from '~/Pages/Home'
-import Product from '~/Pages/Home/Product'
+import Product from '~/Pages/Product'
 
 const configroutes = {
   home: '/',

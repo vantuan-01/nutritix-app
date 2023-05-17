@@ -7,6 +7,7 @@ import {
   faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
+import { useEffect, useRef, useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LoginForm from '~/components/LoginForm'
@@ -15,10 +16,23 @@ import Tooltip from '~/components/Portal'
 import { configroutes as config } from '~/routes/routes'
 import { navlink as nlink } from '~/config/navlink'
 import styles from './Header.module.scss'
-import { useState } from 'react'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const ref = useRef<HTMLElement>()
+
+  useEffect(() => {
+    const handleClickOutSide = (e: any) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener('mouseup', handleClickOutSide)
+    return () => {
+      document.removeEventListener('mouseup', handleClickOutSide)
+    }
+  }, [ref])
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.top_header}>
@@ -56,7 +70,7 @@ function Header() {
               <span>Sign In / Register </span>
             </button>
             {isOpen && (
-              <Tooltip id='signin' top='8rem' right='12rem'>
+              <Tooltip id='signin' top='8rem' right='12rem' ref={ref}>
                 <LoginForm />
               </Tooltip>
             )}

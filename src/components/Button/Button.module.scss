@@ -1,0 +1,14 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.btn {
+  background-color: #fff;
+  color: GlobalStyles.$heading-text-color;
+  text-transform: uppercase;
+  transform: skew(-10deg);
+  &:hover {
+  }
+  span {
+    display: inline-block;
+    transform: skew(10deg);
+  }
+}

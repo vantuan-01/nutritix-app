@@ -1,3 +1,5 @@
+import { forwardRef, useRef } from 'react'
+
 import Portal from './Portal'
 import styles from './Tooltip.module.scss'
 
@@ -10,14 +12,14 @@ interface TooltipProps {
   left?: string
 }
 
-function Tooltip({ children, id, top, right, bottom, left }: TooltipProps) {
+function Tooltip({ children, id, top, right, bottom, left }: TooltipProps, HTMLRef: any) {
   return (
     <Portal id={id}>
-      <div className={styles.wrapper} style={{ top: top, right: right, bottom: bottom, left: left }}>
+      <div ref={HTMLRef} className={styles.wrapper} style={{ top: top, right: right, bottom: bottom, left: left }}>
         {children}
       </div>
     </Portal>
   )
 }
 
-export default Tooltip
+export default forwardRef (Tooltip)
