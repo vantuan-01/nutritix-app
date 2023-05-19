@@ -1,11 +1,38 @@
 @use '~/components/GlobalStyles/GlobalStyles.module.scss';
 
+@include GlobalStyles.keyframes(hover) {
+    from {
+        box-shadow: inset 0 0 0 0.01px GlobalStyles.$primary_hover;
+    }
+    to {
+        box-shadow: inset 20rem 0 0 0.01px GlobalStyles.$primary_hover;
+        color: #fff;
+    }
+}
+
+@include GlobalStyles.keyframes(leave) {
+    from {
+        box-shadow: inset -20rem 0 0 0.01px GlobalStyles.$primary_hover;
+        color: #fff;
+    }
+    to {
+        box-shadow: inset 0 0 0 0.01px GlobalStyles.$primary_hover;
+    }
+}
 .btn {
+  font-family: GlobalStyles.$content-text;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: .6rem 2rem;
   background-color: #fff;
   color: GlobalStyles.$heading-text-color;
   text-transform: uppercase;
+  border: none;
+  border-radius: .3rem;
   transform: skew(-10deg);
+  @include GlobalStyles.animation('leave 0.4s forwards');
   &:hover {
+    @include GlobalStyles.animation ('hover 0.4s forwards');
   }
   span {
     display: inline-block;

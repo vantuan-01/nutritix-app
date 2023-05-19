@@ -1,6 +1,7 @@
 import Button from '~/components/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
+import Slider from '~/components/Slider'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import styles from './Home.module.scss'
 
@@ -9,7 +10,9 @@ function Home() {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.slider}>
-          <div className={styles.slider_container}>slider</div>
+          <div className={styles.slider_container}>
+            <Slider />
+          </div>
         </div>
         <div className={styles.category_ads}>
           <div className={styles.category_ads_container}>
