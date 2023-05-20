@@ -4,7 +4,6 @@ import { SliderText } from './SliderText'
 import styles from './Slider.module.scss'
 
 function SliderItem({ slideNums }: any) {
-  console.log('slideNum', slideNums)
 
   return (
     <div className={styles.slide}>

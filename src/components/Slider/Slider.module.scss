@@ -42,19 +42,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .left_btn, .right_btn {
+    overflow: hidden;
+    .left_btn,
+    .right_btn {
       position: absolute;
       z-index: 10;
       padding: 1.2rem 1.5rem;
       background-color: rgba(0, 0, 0, 0.5);
       border: none;
-      svg{
-        path{
+      svg {
+        path {
           color: #fff;
         }
       }
     }
-    .left_btn{
+    .left_btn {
       left: 5rem;
     }
     .right_btn {
@@ -63,12 +65,19 @@
     .slide {
       position: relative;
       height: 100%;
+      width: 100%;
       .slide_1,
       .slide_2,
       .slide_3 {
-        @include GlobalStyles.animation('fadein 1000ms linear');
+        width: 100%;
+        height: 100%;
+        // @include GlobalStyles.animation('fadein 1000ms linear');
         .slide_bg_img {
+          width: 100%;
+          height: 100%;
           object-fit: cover;
+        @include GlobalStyles.animation('fadein 800ms linear');
+
         }
         .content {
           width: 100%;
@@ -160,13 +169,13 @@
           .title {
             font-size: 7rem;
           }
-          .subtitle{
+          .subtitle {
             font-size: 2.5rem;
             color: #fff;
             margin-bottom: 1rem;
           }
-          img{
-            left: 6.8rem;
+          img {
+            left: -13rem;
             z-index: -1;
           }
         }

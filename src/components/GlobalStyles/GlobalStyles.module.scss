@@ -67,4 +67,8 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     font-family: $content-text;
+    ::selection, ::-moz-selection{
+      color: #fff;
+      background-color: $primary;
+    }
 }
