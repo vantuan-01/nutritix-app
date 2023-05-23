@@ -1,10 +1,23 @@
 import styles from './Button.module.scss'
 
-function Button({ children, padding }: any) {
+interface ButtonProp {
+  children: any
+  padding?: string
+  width?: string
+  height?: string
+  static_btn?: boolean
+}
+
+function Button({ children, padding, width, height, static_btn }: ButtonProp) {
   return (
-    <button className={styles.btn} style={{ padding: padding }}>
-      <span>{children}</span>
-    </button>
+    <>
+      <button
+        className={static_btn ? styles.static_btn : styles.btn}
+        style={{ padding: padding, width: width, height: height }}
+      >
+        <span>{children}</span>
+      </button>
+    </>
   )
 }
 

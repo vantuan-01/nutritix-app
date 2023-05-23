@@ -1,6 +1,11 @@
-import Button from '../Button';
-import Logo from '~/assets/Logo';
-import React from 'react';
+import { faFacebookF, faInstagram, faPinterest, faTwitter } from '@fortawesome/free-brands-svg-icons'
+
+import Button from '../Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Images from '~/assets'
+import { Link } from 'react-router-dom'
+import Logo from '~/assets/Logo'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import styles from './Footer.module.scss'
 
 function Footer() {
@@ -8,11 +13,15 @@ function Footer() {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.news}>
-          <h4>sign up for newsletter</h4>
+          <h2>
+            sign up for newsletter <FontAwesomeIcon icon={faChevronRight} size='sm' />
+          </h2>
           <p>Stay up to date with recent news, advice and weekly offers</p>
-          <div>
-            <input type='email' />
-            <Button>subscribe</Button>
+          <div className={styles.email}>
+            <input type='email' placeholder='Email address' required />
+            <Button static_btn width='20%' height='100%'>
+              subscribe
+            </Button>
           </div>
         </div>
         <div className={styles.all_links}>
@@ -30,6 +39,36 @@ function Footer() {
                 <li>gift cards</li>
               </ul>
             </div>
+            <div className={styles.col_2_4}>
+              <p>about us</p>
+              <ul>
+                <li>company info</li>
+                <li>Press Releases</li>
+                <li>Careers</li>
+                <li>Reviews</li>
+                <li>Investor Relations</li>
+              </ul>
+            </div>
+            <div className={styles.col_2_4}>
+              <p>Quick Links</p>
+              <ul>
+                <li>Search</li>
+                <li>Become a Reseller</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+                <li>Terms of Service</li>
+              </ul>
+            </div>
+            <div className={styles.col_2_4}>
+              <p>Catalogs</p>
+              <ul>
+                <li>Protein</li>
+                <li>my account</li>
+                <li>Performance</li>
+                <li>Weight Management</li>
+                <li>Vitamins & Health</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className={styles.contacts}>
@@ -38,14 +77,37 @@ function Footer() {
               <p>need help?</p>
               <span>+(40)800 0246 888</span>
             </div>
+            <div className={styles.col_4}>
+              <p>FOLLOW US</p>
+              <ul>
+                <li>
+                  <FontAwesomeIcon icon={faFacebookF} />
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faTwitter} />
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faInstagram} />
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faPinterest} />
+                </li>
+              </ul>
+            </div>
+            <div className={styles.col_4}>
+              <p>WE ACCEPT</p>
+              <img src={Images.footer1_img} alt='footer_img' />
+            </div>
           </div>
         </div>
         <div className={styles.copyright}>
-          <p>Copyright © 2022 Nutritix. All rights reserved.</p>
+          <p>
+            Copyright © 2022 <Link to={'/'}>Nutritix</Link>. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
   )
 }
 
-export default Footer;
+export default Footer

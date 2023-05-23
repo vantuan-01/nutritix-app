@@ -2,27 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-  $heading-text: 'Oswald', sans-serif;
-  $heading-text-color: #151515;
-  $content-text: 'Plus Jakarta Sans', sans-serif;
-  $content-text-color: #464646;
-  $content-text-light-color: #888888;
-  $primary: #F65000;
-  $primary_hover: #DD4800;
+$heading-text: 'Oswald', sans-serif;
+$heading-text-color: #151515;
+$content-text: 'Plus Jakarta Sans', sans-serif;
+$content-text-color: #464646;
+$content-text-light-color: #888888;
+$primary: #f65000;
+$primary_hover: #dd4800;
 
-  @mixin keyframes($animation-name) {
+@mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
   }
   @-moz-keyframes #{$animation-name} {
     @content;
-  }  
+  }
   @-ms-keyframes #{$animation-name} {
     @content;
   }
   @-o-keyframes #{$animation-name} {
     @content;
-  }  
+  }
   @keyframes #{$animation-name} {
     @content;
   }
@@ -33,7 +33,7 @@
   -moz-animation: #{$str};
   -ms-animation: #{$str};
   -o-animation: #{$str};
-  animation: #{$str};      
+  animation: #{$str};
 }
 
 // @include keyframes(slide-down) {
@@ -46,29 +46,33 @@
 //   height: 100px;
 //   background: black;
 //   @include animation('slide-down 5s 3');
-// } 
+// }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
-    font-size: 62.5%;
-    button{
-      cursor: pointer;
-    }
+  font-size: 62.5%;
+  button {
+    cursor: pointer;
+  }
+  li {
+    list-style: none;
+  }
 }
 
 body {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-rendering: optimizeSpeed;
-    font-family: $content-text;
-    ::selection, ::-moz-selection{
-      color: #fff;
-      background-color: $primary;
-    }
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  font-family: $content-text;
+  ::selection,
+  ::-moz-selection {
+    color: #fff;
+    background-color: $primary;
+  }
 }

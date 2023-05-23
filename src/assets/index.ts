@@ -1,3 +1,4 @@
+import footer1_img from './images/footer1_img.png'
 import home_ads_1 from './images/home_ads_1.jpg'
 import home_ads_2 from './images/home_ads_2.jpg'
 import home_ads_3 from './images/home_ads_3.jpg'
@@ -37,7 +38,8 @@ const Images = {
   home_slider_3,
   home_slider_4,
   home_slider_5,
-  home_slider_6
+  home_slider_6,
+  footer1_img
 }
 
 export default Images
