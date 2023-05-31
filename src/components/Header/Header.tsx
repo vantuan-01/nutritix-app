@@ -9,6 +9,7 @@ import {
 import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
 import { useEffect, useRef, useState } from 'react'
 
+import CartSide from '../CartSide/CartSide'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LoginForm from '~/components/LoginForm'
 import Logo from '~/assets/Logo'
@@ -19,8 +20,9 @@ import styles from './Header.module.scss'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const ref = useRef<HTMLElement>()
-
+  const [isOpenModal, setIsOpenModal] = useState(true)
+  const ref = useRef<HTMLElement>() 
+  
   useEffect(() => {
     const handleClickOutSide = (e: any) => {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -102,6 +104,7 @@ function Header() {
           </div>
         </div>
       </div>
+      {isOpenModal && <CartSide/>}
     </div>
   )
 }

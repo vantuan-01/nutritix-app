@@ -1,6 +1,5 @@
-import { forwardRef, useRef } from 'react'
-
 import Portal from './Portal'
+import { forwardRef } from 'react'
 import styles from './Tooltip.module.scss'
 
 interface TooltipProps {
