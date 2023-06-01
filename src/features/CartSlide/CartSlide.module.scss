@@ -1,0 +1,32 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+@include GlobalStyles.keyframes(slide-in) {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.cart_side_close {
+  width: 0rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  transition: width 200ms linear;
+}
+
+.cart_side_active {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30rem;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  transition: width 200ms linear;
+}

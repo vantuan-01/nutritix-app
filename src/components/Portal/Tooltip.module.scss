@@ -3,4 +3,5 @@
 .wrapper{
   border-top: .2rem solid GlobalStyles.$primary;
   position: absolute;
+  z-index: 2;
 }
