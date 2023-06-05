@@ -20,6 +20,21 @@
   }
 }
 .btn {
+  background-color: #fff;
+  color: GlobalStyles.$heading-text-color;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.3rem;
+  transform: skew(-10deg);
+  &:hover {
+  }
+  span {
+    display: inline-block;
+    transform: skew(10deg);
+  }
+}
+
+.action_btn {
   font-family: GlobalStyles.$content-text;
   font-size: 1.2rem;
   font-weight: 600;
@@ -40,6 +55,7 @@
   }
 }
 
+
 .static_btn {
   font-family: GlobalStyles.$content-text;
   font-size: 1.2rem;
@@ -51,9 +67,30 @@
   border: none;
   border-radius: 0.3rem;
   transform: skew(-10deg);
-  transition: opacity 200ms linear;
+  transition: background-color 200ms linear;
   &:hover{
     background-color: GlobalStyles.$primary_hover;
+  }
+  span {
+    display: inline-block;
+    transform: skew(10deg);
+  }
+}
+
+.static_btn_no_color {
+  font-family: GlobalStyles.$content-text;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+  background-color: #f7f7f7;
+  color: GlobalStyles.$heading-text-color;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.3rem;
+  transform: skew(-10deg);
+  transition: background-color 200ms linear;
+  &:hover{
+    background-color: #efefef;
   }
   span {
     display: inline-block;
