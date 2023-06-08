@@ -8,7 +8,7 @@ function FilterBar() {
       <FilterItem title='Product Categories'>
         <ul className={styles.list}>
           <li className={styles.item}>
-            <Link to='/'>Apparel</Link>
+            <Link to={'/home'}>Apparel</Link>
             <span>(12)</span>
           </li>
         </ul>
@@ -16,7 +16,7 @@ function FilterBar() {
       <FilterItem title='filter by brand'>
         <ul className={styles.list}>
           <li className={styles.item}>
-            <Link to='/'>energy gym</Link>
+            <Link to={'/home'}>energy gym</Link>
             <span>(2)</span>
           </li>
         </ul>

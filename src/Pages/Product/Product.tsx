@@ -2,13 +2,13 @@ import { faList, faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
 
 import FilterBar from './FilterBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Pagination from '~/features/Pagination/Pagination'
 import ProductItem from './ProductItem'
 import styles from './Product.module.scss'
 import { useState } from 'react'
 
 function Product() {
   const [isActive, setIsActive] = useState('grid')
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -36,12 +36,13 @@ function Product() {
               <p className={styles.result}>Showing 1–12 of 27 results</p>
             </div>
             <ul className={styles.right_side_products}>
-              {Array(4)
+              {Array(12)
                 .fill(true)
                 .map((_, index) => (
                   <ProductItem key={index} />
                 ))}
             </ul>
+            <div className={styles.pagination_row}><Pagination /></div>
           </div>
         </div>
       </div>

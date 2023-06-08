@@ -20,8 +20,8 @@ function CartSlide() {
           <button onClick={() => dispatch(handleChangeSlide(false))}>close</button>
         </div>
         <div className={styles.body}>
-          <p className={styles.empty_cart}>No products in cart</p>
-          {/* <CartSlideItem/> */}
+          {/* <p className={styles.empty_cart}>No products in cart</p> */}
+          <CartSlideItem/>
         </div>
         <div className={styles.footer}>
           <p className={styles.footer_total_price}>

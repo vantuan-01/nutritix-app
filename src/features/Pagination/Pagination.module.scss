@@ -1,0 +1,30 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.pagination {
+  button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: GlobalStyles.$content-text-light-color;
+    background-color: #fff;
+    border: 0.1rem solid GlobalStyles.$border-color;
+    margin-right: 1rem;
+    &:hover {
+      border-color: GlobalStyles.$primary;
+      background-color: GlobalStyles.$primary;
+      color: #fff;
+    }
+    &:disabled {
+      border-color: GlobalStyles.$primary;
+      background-color: GlobalStyles.$primary;
+      color: #fff;
+      cursor: default;
+    }
+  }
+  .button_active {
+    border-color: GlobalStyles.$primary;
+    background-color: GlobalStyles.$primary;
+    color: #fff;
+  }
+}

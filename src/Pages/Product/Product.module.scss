@@ -2,7 +2,7 @@
 
 .wrapper {
   .container {
-    padding: 4rem 10rem;
+    // padding: 4rem 10rem;
     margin: 0 -1.5rem;
     display: flex;
     .left_side {
@@ -165,7 +165,7 @@
                 }
               }
               .item_content {
-                padding: 1.3rem 3rem 2.5rem;
+                padding: 0rem 3rem 2.5rem;
                 background-color: #f4f4f4;
                 .item_brand {
                   display: block;
@@ -241,6 +241,9 @@
               }
             }
           }
+        }
+        .pagination_row{
+          margin-top: 3rem;
         }
       }
     }

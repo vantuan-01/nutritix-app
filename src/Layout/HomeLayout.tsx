@@ -1,8 +1,12 @@
-import Footer from '~/components/Footer';
-import Header from '~/components/Header';
+import Footer from '~/components/Footer/Footer'
+import Header from '~/components/Header/Header'
 import styles from '~/components/GlobalStyles/GlobalStyles.module.scss'
 
-function DefaultLayout({ children }: any) {
+interface HomeLayoutProps {
+  children?: any
+}
+
+function HomeLayout({ children }: HomeLayoutProps) {
   return (
     <div className={styles.wrapper}>
       <Header />
@@ -12,4 +16,4 @@ function DefaultLayout({ children }: any) {
   )
 }
 
-export default DefaultLayout;
+export default HomeLayout
