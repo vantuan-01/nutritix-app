@@ -17,7 +17,7 @@ function ProductItem() {
           </div>
         </Link>
         <div className={styles.item_content}>
-          <Link to={'/home'} className={styles.item_brand}>
+          <Link to={'/'} className={styles.item_brand}>
             Apparel
           </Link>
           <Link to={'/shops/*'} className={styles.item_name}>

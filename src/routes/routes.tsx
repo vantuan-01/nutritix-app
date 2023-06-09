@@ -6,7 +6,7 @@ import HomeLayout from '~/Layout/HomeLayout'
 import Product from '~/Pages/Product'
 
 const configroutes = {
-  home: '/home',
+  home: '/',
   shops: '/shops',
   shop: '/shops/*',
   about: '/about',

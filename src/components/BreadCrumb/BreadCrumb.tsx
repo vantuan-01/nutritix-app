@@ -25,7 +25,7 @@ function BreadCrumb() {
     <div className={styles.breadcrumb_wrapper}>
       <ul className={styles.breadcrumb_container}>
         <li className={styles.breadcrumb_item}>
-          <Link to={'/home'}>home</Link>
+          <Link to={'/'}>home</Link>
         </li>
         {crumbs}
       </ul>

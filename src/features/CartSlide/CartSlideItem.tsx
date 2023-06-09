@@ -6,7 +6,7 @@ function CartSlideItem() {
   return (
     <div className={styles.cart_slide_item}>
       <div className={styles.item}>
-        <Link to={'/home'} onClick={() => console.log('btn item')}>
+        <Link to={'/'} onClick={() => console.log('btn item')}>
           <div className={styles.item_img}>
             <img src={Images.product_1} alt='cart_slide_item' />
           </div>
