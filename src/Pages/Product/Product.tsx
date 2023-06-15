@@ -42,7 +42,9 @@ function Product() {
                   <ProductItem key={index} />
                 ))}
             </ul>
-            <div className={styles.pagination_row}><Pagination /></div>
+            <div className={styles.pagination_row}>
+              <Pagination />
+            </div>
           </div>
         </div>
       </div>

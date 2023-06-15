@@ -10,15 +10,20 @@
   }
 }
 
-@include GlobalStyles.keyframes(leave) {
-  from {
-    box-shadow: inset -20rem 0 0 0.01px GlobalStyles.$primary_hover;
-    color: #fff;
+@include GlobalStyles.keyframes(scaleUp) {
+  0% {
+    transform: scale(1);
   }
-  to {
-    box-shadow: inset 0 0 0 0.01px GlobalStyles.$primary_hover;
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
+
 .btn {
   background-color: #fff;
   color: GlobalStyles.$heading-text-color;
@@ -35,26 +40,45 @@
 }
 
 .action_btn {
-  font-family: GlobalStyles.$content-text;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 0.6rem 2rem;
-  background-color: #fff;
-  color: GlobalStyles.$heading-text-color;
-  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   border: none;
-  border-radius: 0.3rem;
-  transform: skew(-10deg);
-  @include GlobalStyles.animation('leave 0.4s forwards');
+  &::after {
+    content: ' ';
+    width: 0%;
+    height: 100%;
+    background: GlobalStyles.$primary;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+  }
   &:hover {
-    @include GlobalStyles.animation('hover 0.4s forwards');
+    &::after {
+      right: auto;
+      left: 0;
+      width: 100%;
+    }
+    span {
+      color: #fff;
+      @include GlobalStyles.animation('scaleUp 0.3 ease-in-out');
+    }
   }
   span {
-    display: inline-block;
-    transform: skew(10deg);
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    z-index: 1;
+    color: GlobalStyles.$heading-text-color;
+    transition: all 0.3s ease-in-out;
   }
 }
-
 
 .static_btn {
   font-family: GlobalStyles.$content-text;
@@ -68,7 +92,7 @@
   border-radius: 0.3rem;
   transform: skew(-10deg);
   transition: background-color 200ms linear;
-  &:hover{
+  &:hover {
     background-color: GlobalStyles.$primary_hover;
   }
   span {
@@ -89,7 +113,7 @@
   border-radius: 0.3rem;
   transform: skew(-10deg);
   transition: background-color 200ms linear;
-  &:hover{
+  &:hover {
     background-color: #efefef;
   }
   span {

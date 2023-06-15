@@ -54,6 +54,10 @@ $border-color: #e8e8e8;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  &::selection {
+    color: #fff;
+    background-color: $primary;
+  }
 }
 
 html {
@@ -87,11 +91,7 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   font-family: $content-text;
-  ::selection,
-  ::-moz-selection {
-    color: #fff;
-    background-color: $primary;
-  }
+  
   .wrappers {
     .containers {
       padding: 4rem 10rem;

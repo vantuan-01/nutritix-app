@@ -7,8 +7,8 @@ import Product from '~/Pages/Product'
 
 const configroutes = {
   home: '/',
-  shops: '/shops',
-  shop: '/shops/*',
+  shops: '/shop',
+  shop: '/shop/*',
   about: '/about',
   blog: '/blog',
   contact: '/contact',

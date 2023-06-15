@@ -11,7 +11,7 @@ function ProductItem() {
     <li className={styles.right_side_item}>
       <div className={styles.item_block}>
         {onSale && <span className={styles.item_onsale}>14% off</span>}
-        <Link to={'/shops/*'}>
+        <Link to={'/shop/*'}>
           <div className={styles.item_img}>
             <img width={'30rem'} height={'30rem'} src={Images.product_1} alt='item_img' />
           </div>
@@ -20,7 +20,7 @@ function ProductItem() {
           <Link to={'/'} className={styles.item_brand}>
             Apparel
           </Link>
-          <Link to={'/shops/*'} className={styles.item_name}>
+          <Link to={'/shop/*'} className={styles.item_name}>
             Naturally Flavored Gold Standard 100% Whey
           </Link>
           <div className={styles.item_rating}>
