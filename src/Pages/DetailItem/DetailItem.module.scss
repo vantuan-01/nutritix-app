@@ -219,14 +219,45 @@
                   text-align: left;
                   text-transform: capitalize;
                 }
-                th {
-                }
-                td {
-                }
               }
             }
           }
           .review_tab {
+            .review_tab_item {
+              display: flex;
+              margin-bottom: 2rem;
+              .review_tab_item_img {
+                img {
+                  width: 5rem;
+                  height: 5rem;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  margin-right: 1rem;
+                }
+              }
+              .review_tab_item_comment {
+                .comment_rate {
+                  font-size: 1.2rem;
+                }
+                .comment_meta {
+                  margin-bottom: 1.4rem;
+                  .comment_author {
+                    font-size: 1.6rem;
+                    color: GlobalStyles.$heading-text-color;
+                    margin-right: 1rem;
+                  }
+                  .comment_date {
+                    font-size: 1.4rem;
+                    color: GlobalStyles.$content-text-color;
+                  }
+                }
+                .comment_text {
+                  font-size: 1.4rem;
+                  color: GlobalStyles.$content-text-color;
+                  margin-bottom: 1.4rem;
+                }
+              }
+            }
           }
         }
       }
