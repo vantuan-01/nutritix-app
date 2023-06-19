@@ -9,6 +9,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      :hover {
+        color: GlobalStyles.$primary_hover;
+      }
       &::after {
         content: '>';
         padding: 0 0 0 2rem;
