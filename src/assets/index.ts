@@ -20,6 +20,7 @@ import home_slider_5 from './images/home_slider_5.png'
 import home_slider_6 from './images/home_slider_6.jpg'
 import notfound_404 from './images/404_image.png'
 import product_1 from './images/product_1-460x460.jpg'
+import blob from './images/blob_img.jpg'
 
 const Images = {
   home_ads_1,
@@ -43,7 +44,8 @@ const Images = {
   home_slider_6,
   footer1_img,
   product_1,
-  notfound_404
+  notfound_404,
+  blob
 }
 
 export default Images

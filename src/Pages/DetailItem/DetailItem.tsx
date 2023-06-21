@@ -1,13 +1,37 @@
+import { Portal, Tooltip } from '~/components/Portal'
 import { faFacebookF, faLinkedinIn, faPinterestP, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { useEffect, useState } from 'react'
 
+import Button from '~/components/Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
 import { Link } from 'react-router-dom'
 import Tabs from './Tabs'
-import { faFire } from '@fortawesome/free-solid-svg-icons'
+import clsx from 'clsx'
 import styles from './DetailItem.module.scss'
 
 function DetailItem() {
+  const [isShrink, setIsShrink] = useState(false)
+  useEffect(() => {
+    const listenToScroll = () => {
+      setIsShrink(() => {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+          return true
+        }
+
+        if (document.body.scrollTop < 700 && document.documentElement.scrollTop < 700) {
+          return false
+        }
+
+        return isShrink
+      })
+    }
+    window.addEventListener('scroll', listenToScroll)
+    return () => {
+      document.removeEventListener('scroll', listenToScroll)
+    }
+  }, [])
+
   return (
     <div className={styles.DetailItem_wrapper}>
       <div className={styles.DetailItem_container}>
@@ -84,9 +108,33 @@ function DetailItem() {
           </div>
         </div>
         <div className={styles.DetailItem_container_tabs}>
-          <Tabs/>
+          <Tabs />
         </div>
       </div>
+      <Portal id='slideOutUp'>
+        <div className={clsx(styles.DetailItem_slide_in, { [styles.DetailItem_slide_out]: isShrink })}>
+          <div className={styles.DetailItem_slide_in_content}>
+            <div className={styles.DetailItem_slide_in_img}>
+              <img src={Images.product_1} alt='item#' />
+            </div>
+            <div className={styles.DetailItem_slide_in_text}>
+              <div className={styles.DetailItem_slide_in_text_header}>
+                You are viewing: <span>Naturally Flavored Gold Standard 100% Casein</span>
+              </div>
+              <div className={styles.DetailItem_slide_in_text_price}>
+                <p>
+                  $86.00 <span>$90.00</span>
+                </p>
+              </div>
+            </div>
+            <div className={styles.DetailItem_slide_in_btn}>
+              <Button style={{ padding: '1.5rem 2.5rem' }} static_btn>
+                add to cart
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Portal>
     </div>
   )
 }

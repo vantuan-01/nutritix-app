@@ -1,5 +1,25 @@
 @use '~/components/GlobalStyles/GlobalStyles.module.scss';
 
+@include GlobalStyles.keyframes(slideOut) {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+}
+
+@include GlobalStyles.keyframes(slideIn) {
+  0% {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .DetailItem_wrapper {
   .DetailItem_container {
     .DetailItem_container_item {
@@ -263,4 +283,64 @@
       }
     }
   }
+}
+
+.DetailItem_slide_in {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 1.4rem;
+  background-color: #fff;
+  transform: translate3d(0, 100%, 0);
+  z-index: 9;
+  @include GlobalStyles.animation('slideOut 300ms linear');
+  .DetailItem_slide_in_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10rem;
+    .DetailItem_slide_in_img {
+      margin-right: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+        border: 0.1rem solid rgba(0, 0, 0, 0.1);
+      }
+    }
+    .DetailItem_slide_in_text {
+      .DetailItem_slide_in_text_header {
+        font-size: 1.6rem;
+        color: GlobalStyles.$content-text-color;
+        margin-bottom: 0.5rem;
+        span {
+          color: GlobalStyles.$heading-text-color;
+        }
+      }
+      .DetailItem_slide_in_text_price {
+        p {
+          font-size: 1.4rem;
+          color: GlobalStyles.$primary;
+          span {
+            font-size: 1.2rem;
+            color: GlobalStyles.$content-text-light-color;
+            text-decoration: line-through;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+    .DetailItem_slide_in_btn {
+      margin-left: auto;
+    }
+  }
+}
+
+.DetailItem_slide_out {
+  @include GlobalStyles.animation('slideIn 300ms linear');
+  transform: translate3d(0, 0, 0);
 }
