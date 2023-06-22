@@ -14,23 +14,23 @@ function CartSlide() {
 
   return (
     <Modal>
-      <div className={clsx(styles.cart_slide_close, { [styles.cart_slide_active]: isOpen })}>
+      <div className={clsx(styles.cart_slide, styles.cart_slide_close, { [styles.cart_slide_active]: isOpen })}>
         <div className={styles.header}>
           <span>shopping cart</span>
           <button onClick={() => dispatch(handleChangeSlide(false))}>close</button>
         </div>
         <div className={styles.body}>
           {/* <p className={styles.empty_cart}>No products in cart</p> */}
-          <CartSlideItem/>
+          <CartSlideItem />
         </div>
         <div className={styles.footer}>
           <p className={styles.footer_total_price}>
             subtotal: <span>$870.33</span>
           </p>
-          <Button static_btn_no_color style={{ width: '100%', padding: '1.8rem 0', margin: '1rem 0' }}>
+          <Button link_to='/cart' static_btn_no_color style={{ padding: '1.8rem 0', width: '100%', margin: '1rem 0' }}>
             view cart
           </Button>
-          <Button static_btn style={{ width: '100%', padding: '1.8rem 0' }}>
+          <Button link_to='/cart' static_btn style={{ width: '100%', padding: '1.8rem 0' }}>
             checkout
           </Button>
         </div>

@@ -67,7 +67,7 @@ function Home() {
                   <div className={styles.item_content}>
                     <p>top products</p>
                     <h4>true strength of whey</h4>
-                    <Button action_btn style={{ padding: '1rem 2rem' }}>
+                    <Button link_to='/shop' action_btn style={{ padding: '1rem 3rem' }}>
                       shop now
                     </Button>
                   </div>
@@ -79,7 +79,7 @@ function Home() {
                   <div className={styles.item_content}>
                     <p>saving plan</p>
                     <h4>15% of all products</h4>
-                    <Button action_btn style={{ padding: '1rem 2rem' }}>
+                    <Button link_to='/shop' action_btn style={{ padding: '1rem 3rem' }}>
                       shop now
                     </Button>
                   </div>
@@ -94,7 +94,7 @@ function Home() {
                   <div className={styles.item_content}>
                     <p>build up muscle</p>
                     <h4>protein powder collection</h4>
-                    <Button action_btn style={{ padding: '1rem 2rem' }}>
+                    <Button link_to='/shop' action_btn style={{ padding: '1rem 3rem' }}>
                       shop now
                     </Button>
                   </div>

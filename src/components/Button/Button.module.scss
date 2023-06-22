@@ -25,23 +25,25 @@
 }
 
 .btn {
+  display: inline-block;
   background-color: #fff;
   color: GlobalStyles.$heading-text-color;
   text-transform: uppercase;
   border: none;
   border-radius: 0.3rem;
   transform: skew(-10deg);
+  text-align: center;
   &:hover {
   }
   span {
-    display: inline-block;
+    display: inline;
     transform: skew(10deg);
   }
 }
 
 .action_btn {
   position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background: #fff;

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import styles from './Button.module.scss'
 
@@ -7,12 +8,14 @@ interface ButtonProp {
   static_btn?: boolean
   static_btn_no_color?: boolean
   action_btn?: boolean
+  link_to?: string
 }
 
-function Button({ children, style, static_btn, static_btn_no_color, action_btn }: ButtonProp) {
+function Button({ children, style, static_btn, static_btn_no_color, action_btn, link_to }: ButtonProp) {
   return (
     <>
-      <button
+      <Link
+        to={`${link_to}`}
         className={clsx(styles.btn, {
           [styles.static_btn]: static_btn,
           [styles.static_btn_no_color]: static_btn_no_color,
@@ -21,7 +24,7 @@ function Button({ children, style, static_btn, static_btn_no_color, action_btn }
         style={style}
       >
         <span>{children}</span>
-      </button>
+      </Link>
     </>
   )
 }
