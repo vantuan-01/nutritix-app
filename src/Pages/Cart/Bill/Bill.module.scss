@@ -1,0 +1,40 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.wrapper {
+  .container {
+    border: 0.5rem solid GlobalStyles.$border-color;
+    border-radius: 0.5rem;
+    padding: 3rem 2.8rem;
+    .header {
+      h2 {
+        font-family: GlobalStyles.$heading-text;
+        color: GlobalStyles.$heading-text-color;
+        text-transform: uppercase;
+      }
+    }
+    .body {
+      .subtotal,
+      .total {
+        padding: 3rem 0;
+        color: GlobalStyles.$content-text-color;
+        p {
+          display: flex;
+          justify-content: space-between;
+          text-transform: capitalize;
+          font-size: 1.8rem;
+          font-weight: 600;
+        }
+      }
+      .total {
+        border-top: .1rem solid GlobalStyles.$border-color;
+        span {
+          font-size: 2.2rem;
+          color: GlobalStyles.$primary;
+        }
+      }
+    }
+    .footer {
+
+    }
+  }
+}

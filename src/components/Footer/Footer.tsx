@@ -19,7 +19,7 @@ function Footer() {
           <p>Stay up to date with recent news, advice and weekly offers</p>
           <div className={styles.email}>
             <input type='email' placeholder='Email address' required />
-            <Button static_btn width='20%' height='100%'>
+            <Button static_btn style={{ padding: '.6rem 2rem'}}>
               subscribe
             </Button>
           </div>

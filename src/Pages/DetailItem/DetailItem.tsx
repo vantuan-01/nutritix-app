@@ -112,22 +112,27 @@ function DetailItem() {
         </div>
       </div>
       <Portal id='slideOutUp'>
-        <div className={clsx(styles.DetailItem_slide_in, { [styles.DetailItem_slide_out]: isShrink })}>
-          <div className={styles.DetailItem_slide_in_content}>
-            <div className={styles.DetailItem_slide_in_img}>
+        <div
+          className={clsx(styles.DetailItem_popup, {
+            [styles.DetailItem_slide_out]: isShrink,
+            [styles.DetailItem_slide_in]: !isShrink
+          })}
+        >
+          <div className={styles.DetailItem_popup_content}>
+            <div className={styles.DetailItem_popup_img}>
               <img src={Images.product_1} alt='item#' />
             </div>
-            <div className={styles.DetailItem_slide_in_text}>
-              <div className={styles.DetailItem_slide_in_text_header}>
+            <div className={styles.DetailItem_popup_text}>
+              <div className={styles.DetailItem_popup_text_header}>
                 You are viewing: <span>Naturally Flavored Gold Standard 100% Casein</span>
               </div>
-              <div className={styles.DetailItem_slide_in_text_price}>
+              <div className={styles.DetailItem_popup_text_price}>
                 <p>
                   $86.00 <span>$90.00</span>
                 </p>
               </div>
             </div>
-            <div className={styles.DetailItem_slide_in_btn}>
+            <div className={styles.DetailItem_popup_btn}>
               <Button style={{ padding: '1.5rem 2.5rem' }} static_btn>
                 add to cart
               </Button>

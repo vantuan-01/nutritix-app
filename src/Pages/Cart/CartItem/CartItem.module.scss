@@ -1,0 +1,74 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.cartItem_table {
+  border-collapse: collapse;
+  width: 100%;
+  tr {
+    border-bottom: 0.1rem solid #ccc;
+    th,
+    td {
+      padding: 2rem 0 3rem 0;
+      text-align: left;
+    }
+  }
+  thead {
+    tr {
+      th {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: GlobalStyles.$content-text-color;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        font-size: 1.4rem;
+        color: GlobalStyles.$content-text-light-color;
+        .item_del_btn {
+          position: relative;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &::before{
+            content: "";
+            position: absolute;
+            width: 5rem;
+            height: 5rem;
+            // background-color:red;
+          }
+          svg {
+            path {
+              color: GlobalStyles.$content-text-light-color;
+            }
+          }
+        }
+        .item_img {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 7rem;
+            height: 7rem;
+            object-fit: cover;
+          }
+        }
+        .item_name {
+          width: 30rem;
+          font-weight: 600;
+          color: GlobalStyles.$heading-text-color;
+        }
+        .item_price {
+          color: GlobalStyles.$content-text-color;
+        }
+        .item_subtotal {
+          font-weight: 600;
+          color: GlobalStyles.$heading-text-color;
+        }
+      }
+    }
+  }
+}

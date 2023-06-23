@@ -33,6 +33,9 @@
   border-radius: 0.3rem;
   transform: skew(-10deg);
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
   }
   span {
@@ -86,7 +89,6 @@
   font-family: GlobalStyles.$content-text;
   font-size: 1.2rem;
   font-weight: 600;
-  padding: 0.6rem 2rem;
   background-color: GlobalStyles.$primary;
   color: #fff;
   text-transform: uppercase;
@@ -107,7 +109,6 @@
   font-family: GlobalStyles.$content-text;
   font-size: 1.2rem;
   font-weight: 600;
-  padding: 0.6rem 2rem;
   background-color: #f7f7f7;
   color: GlobalStyles.$heading-text-color;
   text-transform: uppercase;
@@ -121,5 +122,12 @@
   span {
     display: inline-block;
     transform: skew(10deg);
+  }
+}
+
+.no_skew {
+  transform: none;
+  span {
+    transform: none;
   }
 }

@@ -1,7 +1,7 @@
 import { handleChangeSlide, selectCartSlice } from './CartSlideSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
 
-import Button from '~/components/Button/Button'
+import Button from '~/components/Button'
 import CartSlideItem from './CartSlideItem'
 import { Link } from 'react-router-dom'
 import Modal from '../../components/Modal'

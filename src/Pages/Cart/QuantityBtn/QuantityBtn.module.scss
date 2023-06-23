@@ -1,0 +1,20 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.wrapper{
+  .container{
+    border: .1rem solid #ccc;
+    display: inline-block;
+    button, span{
+      color: GlobalStyles.$heading-text-color;
+      padding: .8rem 1.5rem;
+    }
+    button{
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+    span{
+      font-weight: 600;
+    }
+  }
+}
