@@ -7,7 +7,7 @@
     border-bottom: 0.1rem solid #ccc;
     th,
     td {
-      padding: 2rem 0 3rem 0;
+      padding: 2rem 2rem 3rem 0;
       text-align: left;
     }
   }
@@ -33,12 +33,19 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          &::before{
-            content: "";
+          transition: all 200ms linear;
+          &:hover {
+            svg {
+              path {
+                color: GlobalStyles.$primary;
+              }
+            }
+          }
+          &::before {
+            content: '';
             position: absolute;
             width: 5rem;
             height: 5rem;
-            // background-color:red;
           }
           svg {
             path {
@@ -51,15 +58,19 @@
           justify-content: center;
           align-items: center;
           img {
-            width: 7rem;
-            height: 7rem;
+            width: 9rem;
+            height: 9rem;
             object-fit: cover;
           }
         }
         .item_name {
+          display: block;
           width: 30rem;
           font-weight: 600;
           color: GlobalStyles.$heading-text-color;
+          &:hover {
+            color: GlobalStyles.$primary;
+          }
         }
         .item_price {
           color: GlobalStyles.$content-text-color;

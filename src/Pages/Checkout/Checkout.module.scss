@@ -1,0 +1,67 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.wrapper {
+  .container {
+    .checkout_error {
+      font-size: 1.4rem;
+      color: #fff;
+      border-left: 0.6180469716rem solid rgba(0, 0, 0, 0.15);
+      background-color: #e2401c;
+      margin-bottom: 3rem;
+      padding: 1.8rem 2rem 1.4rem;
+    }
+    .checkout_form {
+      margin: 0 -2rem;
+      display: flex;
+      .checkout_left {
+        width: 60%;
+        padding: 0 2rem;
+        .checkout_header {
+          font-family: GlobalStyles.$heading-text;
+          font-size: 2.8rem;
+          font-weight: 600;
+          color: GlobalStyles.$heading-text-color;
+          margin-bottom: 1.5rem;
+          text-transform: uppercase;
+        }
+        .checkout_input_block {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          margin-bottom: 1rem;
+          label {
+            color: GlobalStyles.$heading-text-color;
+            font-size: 1.4rem;
+            margin-bottom: 0.7rem;
+            text-transform: capitalize;
+            abbr {
+              margin-left: 0.5rem;
+              border-bottom: 1px dotted #e2401c;
+              color: #e2401c;
+              cursor: help;
+            }
+          }
+          input,
+          textarea {
+            padding: 1.5rem 1rem;
+            border: 0.1rem solid GlobalStyles.$border-color;
+            border-radius: 0.5rem;
+            font-size: 1.6rem;
+            color: GlobalStyles.$content-text-color;
+            outline: none;
+            transition: all 30ms ease-in-out;
+            box-shadow: inset 2px 0 0 #e2401c;
+            resize: none;
+          }
+          .input_filled {
+            box-shadow: inset 2px 0 0 #0f834d;
+          }
+        }
+      }
+      .checkout_right {
+        width: 40%;
+        padding: 0 2rem;
+      }
+    }
+  }
+}

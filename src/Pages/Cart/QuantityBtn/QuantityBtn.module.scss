@@ -1,19 +1,23 @@
 @use '~/components/GlobalStyles/GlobalStyles.module.scss';
 
-.wrapper{
-  .container{
-    border: .1rem solid #ccc;
+.wrapper {
+  .container {
+    border: 0.1rem solid #ccc;
     display: inline-block;
-    button, span{
+    button,
+    span {
       color: GlobalStyles.$heading-text-color;
-      padding: .8rem 1.5rem;
+      padding: 1rem 1.5rem;
     }
-    button{
+    button {
       background-color: transparent;
       border: none;
       outline: none;
+      &:hover {
+        background-color: GlobalStyles.$primary;
+      }
     }
-    span{
+    span {
       font-weight: 600;
     }
   }

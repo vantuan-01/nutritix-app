@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
+import { Link } from 'react-router-dom'
 import QuantityBtn from '../QuantityBtn/QuantityBtn'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import styles from './CartItem.module.scss'
+import styles from './CartList.module.scss'
 
 function CartItem() {
   return (
@@ -28,12 +29,14 @@ function CartItem() {
                 </button>
               </td>
               <td>
-                <div className={styles.item_img}>
+                <Link to={'/'} className={styles.item_img}>
                   <img src={Images.product_1} alt='item_img' />
-                </div>
+                </Link>
               </td>
               <td>
-                <p className={styles.item_name}>Naturally Flavored Gold Standard 100% Whey</p>
+                <Link to={'/'} className={styles.item_name}>
+                  Naturally Flavored Gold Standard 100% Whey
+                </Link>
               </td>
               <td>
                 <p className={styles.item_price}>

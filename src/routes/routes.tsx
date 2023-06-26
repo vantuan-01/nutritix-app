@@ -1,4 +1,5 @@
 import Cart from '~/Pages/Cart'
+import Checkout from '~/Pages/Checkout'
 import DetailItem from '~/Pages/DetailItem'
 import { FunctionComponent } from 'react'
 import Home from '~/Pages/Home'
@@ -11,6 +12,7 @@ const configroutes = {
   shops: '/shop',
   shop: '/shop/*',
   cart: '/cart',
+  checkout: '/checkout',
   about: '/about',
   blog: '/blog',
   contact: '/contact',
@@ -28,7 +30,8 @@ const publicRoutes: RouteConfig[] = [
   { path: configroutes.shops, component: Product },
   { path: configroutes.shop, component: DetailItem },
   { path: configroutes.notfound404, component: NotFound404 },
-  { path: configroutes.cart, component: Cart }
+  { path: configroutes.cart, component: Cart },
+  { path: configroutes.checkout, component: Checkout }
 ]
 
 const privateRoutes = []

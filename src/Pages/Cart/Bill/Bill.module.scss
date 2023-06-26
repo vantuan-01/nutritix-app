@@ -13,28 +13,48 @@
       }
     }
     .body {
-      .subtotal,
-      .total {
-        padding: 3rem 0;
-        color: GlobalStyles.$content-text-color;
-        p {
-          display: flex;
-          justify-content: space-between;
-          text-transform: capitalize;
-          font-size: 1.8rem;
-          font-weight: 600;
-        }
-      }
-      .total {
-        border-top: .1rem solid GlobalStyles.$border-color;
-        span {
-          font-size: 2.2rem;
-          color: GlobalStyles.$primary;
+      table {
+        width: 100%;
+        thead,
+        tbody,
+        tfoot {
+          tr {
+            text-transform: capitalize;
+            th {
+              padding: 1.8rem 0;
+              font-size: 1.8rem;
+              font-weight: 500;
+              color: GlobalStyles.$heading-text-color;
+              border-bottom: 0.1rem solid GlobalStyles.$border-color;
+              &:nth-child(1) {
+                text-align: left;
+              }
+              &:nth-child(2) {
+                text-align: right;
+              }
+            }
+            td {
+              padding: 1.8rem 0;
+              font-size: 1.4rem;
+              color: GlobalStyles.$content-text-color;
+              border-bottom: 0.1rem solid GlobalStyles.$border-color;
+              &:nth-child(1) {
+                text-align: left;
+              }
+              &:nth-child(2) {
+                text-align: right;
+              }
+            }
+            .total_price{
+              font-size: 2.4rem;
+              font-weight: 600;
+              color: GlobalStyles.$primary;
+            }
+          }
         }
       }
     }
     .footer {
-
     }
   }
 }
