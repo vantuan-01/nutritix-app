@@ -68,6 +68,14 @@ html {
   li {
     list-style: none;
   }
+  input {
+    &:focus {
+      &::placeholder {
+        transition: all 1000ms ease-in-out;
+        color: transparent;
+      }
+    }
+  }
 }
 
 // Scroll bar css
@@ -91,7 +99,7 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   font-family: $content-text;
-  
+
   .wrappers {
     .containers {
       padding: 4rem 10rem;

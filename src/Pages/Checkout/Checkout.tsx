@@ -16,7 +16,7 @@ function Checkout() {
             </div>
             <div className={styles.checkout_input_block}>
               <label htmlFor='fullname'>
-                fullname <abbr title='required'>*</abbr>
+                full name <abbr title='required'>*</abbr>
               </label>
               <input className={styles.input_filled} type='text' id='fullname' />
             </div>

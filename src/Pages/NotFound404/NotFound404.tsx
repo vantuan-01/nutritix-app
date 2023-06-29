@@ -18,6 +18,12 @@ function NotFound404() {
         </p>
       </div>
     </div>
+
+    // <div className={styles.typing_text}>
+    //   <h1>
+    //     My name is: <span>Tứng</span>
+    //   </h1>
+    // </div>
   )
 }
 

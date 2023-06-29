@@ -12,7 +12,7 @@
       font-family: GlobalStyles.$heading-text;
       font-size: 5rem;
       margin-bottom: 2rem;
-      word-spacing: -.5rem;
+      word-spacing: -0.5rem;
     }
     p {
       font-size: 1.4rem;
@@ -21,10 +21,40 @@
     }
     a {
       color: GlobalStyles.$primary;
-      &:hover{
+      &:hover {
         color: GlobalStyles.$content-text-color;
       }
     }
   }
 }
 
+
+
+// Typing animation
+// @keyframes run {
+//   0%, 100% {
+//     transform: translateX(2%);
+//   }
+//   50% {
+//     transform: translateX(-100%);
+//   }
+// }
+
+// .typing_text {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   h1 {
+//     position: relative;
+//     display: inline-block;
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       width: calc(100% - 19rem);
+//       height: 100%;
+//       background-color: #fff;
+//       @include GlobalStyles.animation('run 3000ms infinite');
+//       border-left: 0.5rem solid GlobalStyles.$primary;
+//     }
+//   }
+// }

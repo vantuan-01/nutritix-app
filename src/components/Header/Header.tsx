@@ -13,6 +13,7 @@ import CartSlide from '~/features/CartSlide/CartSlide'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LoginForm from '~/components/LoginForm'
 import Logo from '~/assets/Logo'
+import SearchResult from './SearchResult/SearchResult'
 import Tooltip from '../Portal/Tooltip'
 import { configroutes as config } from '~/routes/routes'
 import { handleChangeSlide } from '~/features/CartSlide/CartSlideSlice'
@@ -65,6 +66,7 @@ function Header() {
             <button type='submit'>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
+            <SearchResult />
           </div>
           <div className={styles.user_group}>
             <div className={styles.user_account}>

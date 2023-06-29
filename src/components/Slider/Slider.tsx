@@ -7,6 +7,7 @@ import styles from './Slider.module.scss'
 
 function Slider() {
   const [num, setNum] = useState(1)
+
   useEffect(() => {
     const autoUp = setTimeout(() => {
       setNum(num + 1)

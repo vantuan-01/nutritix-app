@@ -1,12 +1,12 @@
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './Pagination.module.scss'
 
 function Pagination() {
-  const pageNums = [];
+  const pageNums = []
 
-  for(let i = 1; i <= 5; i++){
+  for (let i = 1; i <= 5; i++) {
     pageNums.push(i)
   }
 
@@ -25,4 +25,4 @@ function Pagination() {
   )
 }
 
-export default Pagination;
+export default Pagination

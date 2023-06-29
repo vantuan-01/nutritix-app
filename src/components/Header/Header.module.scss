@@ -59,13 +59,14 @@
       }
     }
     .search_bar {
+      position: relative;
       width: 20%;
       height: 40%;
       font-family: GlobalStyles.$content-text;
       font-size: 1.4rem;
       border-radius: 0.3rem;
       transform: skewX(-10deg);
-      overflow: hidden;
+      // overflow: hidden;
       background-color: #fff;
       input {
         padding: 0 2rem;
@@ -73,11 +74,13 @@
         height: 100%;
         border: none;
         outline: none;
-        &:focus {
-          .search_bar {
-            border: 3px solid #f65000;
-          }
-        }
+        border-top-left-radius: .3rem;
+        border-bottom-left-radius: .3rem;
+        // &:focus {
+        //   .search_bar {
+        //     border: 3px solid #f65000;
+        //   }
+        // }
       }
       button {
         width: 20%;

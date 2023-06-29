@@ -1,0 +1,65 @@
+@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+
+.wrapper_search {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: calc(0% + 2.5rem);
+  z-index: 999;
+  transform: skew(10deg);
+  .container_search {
+    max-height: 50rem;
+    padding: 0 2rem;
+    background-color: #fff;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    .search_result_item {
+      padding: 1rem 0;
+      border-bottom: 0.1rem solid GlobalStyles.$border-color;
+      .search_result_item_link {
+        display: flex;
+        align-items: center;
+        .item_link_img {
+          width: 6rem;
+          height: 6rem;
+          margin-right: 1.5rem;
+          img {
+            width: 6rem;
+            height: 6rem;
+            object-fit: cover;
+          }
+        }
+
+        .item_link_content {
+          h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.5714285714;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            color: GlobalStyles.$heading-text-color;
+          }
+          .item_link_content_price {
+            .normal_price {
+              font-size: 1.6rem;
+              color: GlobalStyles.$heading-text-color;
+            }
+            .old_price {
+              font-size: 1.4rem;
+              text-decoration: line-through;
+              color: GlobalStyles.$content-text-light-color;
+              margin-right: 1rem;
+            }
+            .sale_price {
+              font-size: 1.6rem;
+              color: GlobalStyles.$primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
