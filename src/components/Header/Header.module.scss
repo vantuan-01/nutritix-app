@@ -65,29 +65,31 @@
       font-family: GlobalStyles.$content-text;
       font-size: 1.4rem;
       border-radius: 0.3rem;
-      transform: skewX(-10deg);
-      // overflow: hidden;
-      background-color: #fff;
-      input {
-        padding: 0 2rem;
-        width: 80%;
+      background-color: transparent;
+      .search_bar_form {
         height: 100%;
-        border: none;
-        outline: none;
-        border-top-left-radius: .3rem;
-        border-bottom-left-radius: .3rem;
-        // &:focus {
-        //   .search_bar {
-        //     border: 3px solid #f65000;
-        //   }
-        // }
-      }
-      button {
-        width: 20%;
-        height: 100%;
-        border: none;
-        background-color: transparent;
-        transform: skewX(10deg);
+        transform: skewX(-10deg);
+        background-color: #fff;
+        border-radius: .3rem;
+        input {
+          padding: 0 2rem;
+          width: 80%;
+          height: 100%;
+          border: none;
+          outline: none;
+          &:focus {
+            .search_bar_form {
+              border: 3px solid #f65000;
+            }
+          }
+        }
+        button {
+          width: 20%;
+          height: 100%;
+          border: none;
+          background-color: transparent;
+          transform: skewX(10deg);
+        }
       }
     }
     .user_group {
@@ -183,7 +185,7 @@
       left: 0;
       background-color: GlobalStyles.$primary;
       opacity: 0.15;
-      z-index: -1;
+      z-index: -3;
     }
     .container {
       width: 100%;
@@ -192,6 +194,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 25rem;
+      z-index: -2;
       .content {
         svg {
           margin-right: 1rem;

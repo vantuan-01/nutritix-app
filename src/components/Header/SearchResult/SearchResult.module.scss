@@ -4,9 +4,8 @@
   position: absolute;
   width: 100%;
   top: 100%;
-  left: calc(0% + 2.5rem);
+  left: 0;
   z-index: 999;
-  transform: skew(10deg);
   .container_search {
     max-height: 50rem;
     padding: 0 2rem;
@@ -29,7 +28,6 @@
             object-fit: cover;
           }
         }
-
         .item_link_content {
           h4 {
             font-size: 1.4rem;
