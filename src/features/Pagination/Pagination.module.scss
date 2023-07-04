@@ -1,4 +1,4 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
 .pagination {
   button {
@@ -6,25 +6,25 @@
     height: 4rem;
     font-size: 1.4rem;
     font-weight: 400;
-    color: GlobalStyles.$content-text-light-color;
+    color: $content-text-light-color;
     background-color: #fff;
-    border: 0.1rem solid GlobalStyles.$border-color;
+    border: 0.1rem solid $border-color;
     margin-right: 1rem;
     &:hover {
-      border-color: GlobalStyles.$primary;
-      background-color: GlobalStyles.$primary;
+      border-color: $primary;
+      background-color: $primary;
       color: #fff;
     }
     &:disabled {
-      border-color: GlobalStyles.$primary;
-      background-color: GlobalStyles.$primary;
+      border-color: $primary;
+      background-color: $primary;
       color: #fff;
       cursor: default;
     }
   }
   .button_active {
-    border-color: GlobalStyles.$primary;
-    background-color: GlobalStyles.$primary;
+    border-color: $primary;
+    background-color: $primary;
     color: #fff;
   }
 }

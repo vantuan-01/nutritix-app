@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
 import { Link } from 'react-router-dom'
-import QuantityBtn from '../QuantityBtn/QuantityBtn'
+import QuantityBtn from '~/components/QuantityBtn'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import styles from './CartList.module.scss'
 

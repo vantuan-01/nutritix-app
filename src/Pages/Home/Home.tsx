@@ -17,15 +17,15 @@ function Home() {
         <div className={styles.category_ads}>
           <div className={styles.category_ads_container}>
             <div className={styles.header}>
-              <h2>
+              <h1>
                 find your goal <FontAwesomeIcon icon={faChevronRight} />
-              </h2>
+              </h1>
             </div>
             <div className={styles.category}>
               <div className={styles.category_container}>
                 <div className={styles.category_item}>
                   <div className={styles.item_caption}>
-                    <h2>build your strength</h2>
+                    <h1>build your strength</h1>
                     <p>get muscles</p>
                   </div>
                   <div className={styles.item_img}>
@@ -34,7 +34,7 @@ function Home() {
                 </div>
                 <div className={styles.category_item}>
                   <div className={styles.item_caption}>
-                    <h2>build your burn</h2>
+                    <h1>build your burn</h1>
                     <p>get cut</p>
                   </div>
                   <div className={styles.item_img}>
@@ -43,7 +43,7 @@ function Home() {
                 </div>
                 <div className={styles.category_item}>
                   <div className={styles.item_caption}>
-                    <h2>build your fitness</h2>
+                    <h1>build your fitness</h1>
                     <p>get fit</p>
                   </div>
                   <div className={styles.item_img}>
@@ -52,7 +52,7 @@ function Home() {
                 </div>
                 <div className={styles.category_item}>
                   <div className={styles.item_caption}>
-                    <h2>build your performance</h2>
+                    <h1>build your performance</h1>
                     <p>get powerful</p>
                   </div>
                   <div className={styles.item_img}>
@@ -66,7 +66,7 @@ function Home() {
                 <div className={styles.ads_item}>
                   <div className={styles.item_content}>
                     <p>top products</p>
-                    <h4>true strength of whey</h4>
+                    <h2>true strength of whey</h2>
                     <Button link_to='/shop' action_btn style={{ padding: '1rem 3rem' }}>
                       shop now
                     </Button>
@@ -78,7 +78,7 @@ function Home() {
                 <div className={styles.ads_item}>
                   <div className={styles.item_content}>
                     <p>saving plan</p>
-                    <h4>15% of all products</h4>
+                    <h2>15% of all products</h2>
                     <Button link_to='/shop' action_btn style={{ padding: '1rem 3rem' }}>
                       shop now
                     </Button>
@@ -93,7 +93,7 @@ function Home() {
                   </div>
                   <div className={styles.item_content}>
                     <p>build up muscle</p>
-                    <h4>protein powder collection</h4>
+                    <h2>protein powder collection</h2>
                     <Button link_to='/shop' action_btn style={{ padding: '1rem 3rem' }}>
                       shop now
                     </Button>

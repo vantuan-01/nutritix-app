@@ -1,16 +1,17 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
-@include GlobalStyles.keyframes(hover) {
+
+@include keyframes(hover) {
   from {
-    box-shadow: inset 0 0 0 0.01px GlobalStyles.$primary_hover;
+    box-shadow: inset 0 0 0 0.01px $primary_hover;
   }
   to {
-    box-shadow: inset 20rem 0 0 0.01px GlobalStyles.$primary_hover;
+    box-shadow: inset 20rem 0 0 0.01px $primary_hover;
     color: #fff;
   }
 }
 
-@include GlobalStyles.keyframes(scaleUp) {
+@include keyframes(scaleUp) {
   0% {
     transform: scale(1);
   }
@@ -27,7 +28,7 @@
 .btn {
   display: inline-block;
   background-color: #fff;
-  color: GlobalStyles.$heading-text-color;
+  color: $heading-text-color;
   text-transform: uppercase;
   border: none;
   border-radius: 0.3rem;
@@ -57,7 +58,7 @@
     content: ' ';
     width: 0%;
     height: 100%;
-    background: GlobalStyles.$primary;
+    background: $primary;
     position: absolute;
     transition: all 0.4s ease-in-out;
     right: 0;
@@ -70,7 +71,7 @@
     }
     span {
       color: #fff;
-      @include GlobalStyles.animation('scaleUp 0.3 ease-in-out');
+      @include animation('scaleUp 0.3 ease-in-out');
     }
   }
   span {
@@ -80,16 +81,16 @@
     font-size: 1.2rem;
     font-weight: 600;
     z-index: 1;
-    color: GlobalStyles.$heading-text-color;
+    color: $heading-text-color;
     transition: all 0.3s ease-in-out;
   }
 }
 
 .static_btn {
-  font-family: GlobalStyles.$content-text;
+  font-family: $content-text;
   font-size: 1.2rem;
   font-weight: 600;
-  background-color: GlobalStyles.$primary;
+  background-color: $primary;
   color: #fff;
   text-transform: uppercase;
   border: none;
@@ -97,7 +98,7 @@
   transform: skew(-10deg);
   transition: background-color 200ms linear;
   &:hover {
-    background-color: GlobalStyles.$primary_hover;
+    background-color: $primary_hover;
   }
   span {
     display: inline-block;
@@ -106,11 +107,11 @@
 }
 
 .static_btn_no_color {
-  font-family: GlobalStyles.$content-text;
+  font-family: $content-text;
   font-size: 1.2rem;
   font-weight: 600;
   background-color: #f7f7f7;
-  color: GlobalStyles.$heading-text-color;
+  color: $heading-text-color;
   text-transform: uppercase;
   border: none;
   border-radius: 0.3rem;

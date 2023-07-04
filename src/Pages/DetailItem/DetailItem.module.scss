@@ -1,6 +1,7 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
-@include GlobalStyles.keyframes(slideOut) {
+
+@include keyframes(slideOut) {
   0% {
     transform: translate3d(0, 0, 0);
   }
@@ -10,7 +11,7 @@
   }
 }
 
-@include GlobalStyles.keyframes(slideIn) {
+@include keyframes(slideIn) {
   0% {
     transform: translate3d(0, 100%, 0);
     visibility: visible;
@@ -93,9 +94,9 @@
           }
         }
         .item_name {
-          font-family: GlobalStyles.$heading-text;
-          font-size: 4rem;
-          line-height: 1;
+          font-family: $heading-text;
+          font-size: 5rem;
+          line-height: 1.2;
           margin-bottom: 1.5rem;
           font-weight: 700;
           text-transform: uppercase;
@@ -105,28 +106,29 @@
           gap: 4rem;
           .item_after_name_content {
             text-transform: capitalize;
-            color: GlobalStyles.$content-text-light-color;
+            color: $content-text-light-color;
             margin-bottom: 0.7rem;
             a {
               margin-left: 0.5rem;
               text-transform: none;
-              color: GlobalStyles.$heading-text-color;
+              color: $heading-text-color;
             }
           }
         }
         .item_price {
+          font-family: $content-text-heavy;
           display: flex;
           align-items: flex-end;
           line-height: 1;
           .normal_price {
-            font-size: 1.4rem;
-            color: GlobalStyles.$content-text-light-color;
+            font-size: 2rem;
+            color: $content-text-light-color;
             text-decoration: line-through;
           }
           .sale_price {
             font-size: 2.4rem;
             font-weight: 500;
-            color: GlobalStyles.$primary;
+            color: $primary;
             margin-left: 1rem;
           }
         }
@@ -134,16 +136,16 @@
           font-size: 1.4rem;
           margin-top: 1.7rem;
           margin-bottom: 2.8rem;
-          color: GlobalStyles.$content-text-color;
+          color: $content-text-color;
         }
         .item_deal_sold {
           font-size: 1.3rem;
           font-weight: 600;
           p {
-            color: GlobalStyles.$content-text-light-color;
+            color: $content-text-light-color;
             margin-bottom: 0.8rem;
             span {
-              color: GlobalStyles.$heading-text-color;
+              color: $heading-text-color;
             }
           }
           .deal_sold_progress_bar {
@@ -155,7 +157,7 @@
             overflow: hidden;
             .deal_sold_progress_value {
               position: absolute;
-              background-color: GlobalStyles.$primary;
+              background-color: $primary;
               top: 0;
               left: 0;
               height: 100%;
@@ -163,23 +165,28 @@
           }
         }
         .item_btns {
+          margin: 3rem 0;
+          gap: 2rem;
+          display: flex;
+          // justify-content: center;
+          align-items: center;
         }
         .item_category,
         .item_tag {
           font-size: 1.4rem;
-          color: GlobalStyles.$heading-text-color;
+          color: $heading-text-color;
           text-transform: capitalize;
           a {
-            color: GlobalStyles.$content-text-light-color;
+            color: $content-text-light-color;
             &:hover {
-              color: GlobalStyles.$primary;
+              color: $primary;
             }
           }
         }
 
         .item_share {
           font-size: 1.4rem;
-          color: GlobalStyles.$content-text-color;
+          color: $content-text-color;
           display: flex;
           align-items: center;
           gap: 1.5rem;
@@ -199,14 +206,14 @@
           padding-bottom: 1.5rem;
           border-bottom: 1px solid #e8e8e8;
           button {
-            font-family: GlobalStyles.$heading-text;
-            font-size: 2rem;
+            font-family: $heading-text;
+            font-size: 2.5rem;
             font-weight: 600;
             font-style: italic;
             text-transform: uppercase;
             border: none;
             background-color: transparent;
-            color: GlobalStyles.$content-text-light-color;
+            color: $content-text-light-color;
             &:not(:last-child)::after {
               content: '';
               display: inline-block;
@@ -219,13 +226,13 @@
             }
           }
           .active_btn {
-            color: GlobalStyles.$heading-text-color;
+            color: $heading-text-color;
           }
         }
         .tabs_body {
           .description_tab {
             font-size: 1.4rem;
-            color: GlobalStyles.$content-text-color;
+            color: $content-text-color;
           }
           .info_tab {
             table {
@@ -235,7 +242,7 @@
                 th,
                 td {
                   padding: 1.4rem 2rem;
-                  border: 0.1rem solid GlobalStyles.$border-color;
+                  border: 0.1rem solid $border-color;
                   text-align: left;
                   text-transform: capitalize;
                 }
@@ -263,17 +270,17 @@
                   margin-bottom: 1.4rem;
                   .comment_author {
                     font-size: 1.6rem;
-                    color: GlobalStyles.$heading-text-color;
+                    color: $heading-text-color;
                     margin-right: 1rem;
                   }
                   .comment_date {
                     font-size: 1.4rem;
-                    color: GlobalStyles.$content-text-color;
+                    color: $content-text-color;
                   }
                 }
                 .comment_text {
                   font-size: 1.4rem;
-                  color: GlobalStyles.$content-text-color;
+                  color: $content-text-color;
                   margin-bottom: 1.4rem;
                 }
               }
@@ -314,19 +321,19 @@
     .DetailItem_popup_text {
       .DetailItem_popup_text_header {
         font-size: 1.6rem;
-        color: GlobalStyles.$content-text-color;
+        color: $content-text-color;
         margin-bottom: 0.5rem;
         span {
-          color: GlobalStyles.$heading-text-color;
+          color: $heading-text-color;
         }
       }
       .DetailItem_popup_text_price {
         p {
           font-size: 1.4rem;
-          color: GlobalStyles.$primary;
+          color: $primary;
           span {
             font-size: 1.2rem;
-            color: GlobalStyles.$content-text-light-color;
+            color: $content-text-light-color;
             text-decoration: line-through;
             margin-left: 1rem;
           }
@@ -340,10 +347,10 @@
 }
 
 .DetailItem_slide_in{
-  @include GlobalStyles.animation('slideOut 300ms linear');
+  @include animation('slideOut 300ms linear');
 }
 
 .DetailItem_slide_out {
-  @include GlobalStyles.animation('slideIn 300ms linear');
+  @include animation('slideIn 300ms linear');
   transform: translate3d(0, 0, 0);
 }

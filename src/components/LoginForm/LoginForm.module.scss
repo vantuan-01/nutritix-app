@@ -1,4 +1,4 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
 .wrapper {
   .container {
@@ -19,7 +19,7 @@
         background-color: transparent;
         border: none;
         cursor: pointer;
-        color: GlobalStyles.$heading-text;
+        color: $heading-text;
         &:hover {
           outline: none;
         }
@@ -30,7 +30,7 @@
       align-items:center;
       justify-content:center;
       flex-direction:column;
-      color: GlobalStyles.$content-text-color;
+      color: $content-text-color;
       font-size: 1.4rem;
       margin-bottom: 1.2rem;
       .content {
@@ -40,7 +40,7 @@
           display: block;
           margin-bottom: 0.3rem;
           .required {
-            color: GlobalStyles.$primary;
+            color: $primary;
           }
         }
         input {
@@ -71,7 +71,7 @@
           transform: skew(10deg);
         }
         &:hover{
-          background-color: GlobalStyles.$primary;
+          background-color: $primary;
         }
       }
     }

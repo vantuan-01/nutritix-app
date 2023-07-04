@@ -6,6 +6,7 @@ import Button from '~/components/Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
 import { Link } from 'react-router-dom'
+import QuantityBtn from '~/components/QuantityBtn/QuantityBtn'
 import Tabs from './Tabs'
 import clsx from 'clsx'
 import styles from './DetailItem.module.scss'
@@ -92,7 +93,12 @@ function DetailItem() {
                 <div className={styles.deal_sold_progress_value} style={{ width: '38.8%' }}></div>
               </div>
             </div>
-            <div className={styles.item_btns}></div>
+            <div className={styles.item_btns}>
+              <QuantityBtn />
+              <Button static_btn style={{ padding: '1.2rem 3rem' }}>
+                add to cart
+              </Button>
+            </div>
             <div className={styles.item_category}>
               Category: <Link to={'/'}>Uncategorized</Link>
             </div>

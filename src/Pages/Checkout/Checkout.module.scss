@@ -1,4 +1,4 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
 .wrapper {
   .container {
@@ -17,10 +17,10 @@
         width: 60%;
         padding: 0 2rem;
         .checkout_header {
-          font-family: GlobalStyles.$heading-text;
+          font-family: $heading-text;
           font-size: 2.8rem;
           font-weight: 600;
-          color: GlobalStyles.$heading-text-color;
+          color: $heading-text-color;
           margin-bottom: 1.5rem;
           text-transform: uppercase;
         }
@@ -30,7 +30,7 @@
           flex-direction: column;
           margin-bottom: 1rem;
           label {
-            color: GlobalStyles.$heading-text-color;
+            color: $heading-text-color;
             font-size: 1.4rem;
             margin-bottom: 0.7rem;
             text-transform: capitalize;
@@ -44,10 +44,10 @@
           input,
           textarea {
             padding: 1.5rem 1rem;
-            border: 0.1rem solid GlobalStyles.$border-color;
+            border: 0.1rem solid $border-color;
             border-radius: 0.5rem;
             font-size: 1.6rem;
-            color: GlobalStyles.$content-text-color;
+            color: $content-text-color;
             outline: none;
             transition: all 30ms ease-in-out;
             box-shadow: inset 2px 0 0 #e2401c;

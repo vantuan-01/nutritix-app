@@ -1,7 +1,7 @@
-@use "~/components/GlobalStyles/GlobalStyles.module.scss";
+@import '../../index.module.scss';
 
 .wrapper{
   position: absolute;
-  border-top: .2rem solid GlobalStyles.$primary;
+  border-top: .2rem solid $primary;
   z-index: 999;
 }

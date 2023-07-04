@@ -3,19 +3,19 @@ import {
   faBagShopping,
   faBox,
   faHeadphones,
+  faHeart,
   faLocationArrow,
   faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons'
-import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
 import { useEffect, useRef, useState } from 'react'
 
 import CartSlide from '~/features/CartSlide/CartSlide'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LoginForm from '~/components/LoginForm'
 import Logo from '~/assets/Logo'
-import SearchResult from './SearchResult'
 import Tooltip from '../Portal/Tooltip'
 import { configroutes as config } from '~/routes/routes'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { handleChangeSlide } from '~/features/CartSlide/CartSlideSlice'
 import { navlink as nlink } from '~/config/navlink'
 import styles from './Header.module.scss'

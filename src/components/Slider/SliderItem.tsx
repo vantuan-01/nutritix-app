@@ -24,7 +24,9 @@ function SliderItem({ slideNums }: any) {
             <div className={styles.right}>
               <p>online supplement store</p>
               <h2>power your workout</h2>
-              <Button action_btn style={{ padding: '1.5rem 5rem' }}>get bundle</Button>
+              <Button link_to={'/shop'} action_btn style={{ padding: '1.5rem 5rem' }}>
+                get bundle
+              </Button>
             </div>
           </div>
         </div>
@@ -36,7 +38,9 @@ function SliderItem({ slideNums }: any) {
             <h1 className={styles.title}>best quality, best price</h1>
             <span className={styles.subtitle}>member save an extra 10% off</span>
             <img className={styles.img} src={Images.home_slider_5} alt='slide_img' />
-            <Button action_btn style={{ padding: '1.5rem 5rem' }}>shop now</Button>
+            <Button link_to={'/shop'} action_btn style={{ padding: '1.5rem 5rem' }}>
+              shop now
+            </Button>
           </div>
         </div>
       ) : (

@@ -1,8 +1,8 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
 .wrapper {
   .container {
-    background-color: GlobalStyles.$heading-text-color;
+    background-color: $heading-text-color;
     color: #fff;
     .news {
       padding: 6rem 3rem;
@@ -16,14 +16,14 @@
         text-transform: uppercase;
         svg {
           path {
-            color: GlobalStyles.$primary;
+            color: $primary;
           }
         }
       }
       p {
         font-size: 1.4rem;
         padding: 1rem 0 2.5rem;
-        color: GlobalStyles.$content-text-light-color;
+        color: $content-text-light-color;
       }
       .email {
         position: relative;
@@ -82,10 +82,10 @@
             li {
               list-style: none;
               margin-bottom: 1rem;
-              color: GlobalStyles.$content-text-light-color;
+              color: $content-text-light-color;
               cursor: pointer;
               &:hover {
-                color: GlobalStyles.$primary_hover;
+                color: $primary_hover;
               }
             }
           }
@@ -111,7 +111,7 @@
           p {
             font-size: 1.2rem;
             font-weight: 700;
-            color: GlobalStyles.$content-text-light-color;
+            color: $content-text-light-color;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
           }
@@ -136,7 +136,7 @@
                 border-radius: 50%;
               }
               &:hover {
-                background-color: GlobalStyles.$primary_hover;
+                background-color: $primary_hover;
                 svg {
                   path {
                     color: #fff;
@@ -158,7 +158,7 @@
       justify-content: center;
       align-items: center;
       font-size: 1.4rem;
-      color: GlobalStyles.$content-text-light-color;
+      color: $content-text-light-color;
       p {
         a {
           color: #fff;

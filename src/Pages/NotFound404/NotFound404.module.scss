@@ -1,4 +1,4 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../index.module.scss';
 
 .notfound404_wrapper {
   display: flex;
@@ -9,20 +9,20 @@
   }
   .notfound404_text {
     h1 {
-      font-family: GlobalStyles.$heading-text;
+      font-family: $heading-text;
       font-size: 5rem;
       margin-bottom: 2rem;
       word-spacing: -0.5rem;
     }
     p {
       font-size: 1.4rem;
-      color: GlobalStyles.$content-text-color;
+      color: $content-text-color;
       text-align: center;
     }
     a {
-      color: GlobalStyles.$primary;
+      color: $primary;
       &:hover {
-        color: GlobalStyles.$content-text-color;
+        color: $content-text-color;
       }
     }
   }
@@ -53,8 +53,8 @@
 //       width: calc(100% - 19rem);
 //       height: 100%;
 //       background-color: #fff;
-//       @include GlobalStyles.animation('run 3000ms infinite');
-//       border-left: 0.5rem solid GlobalStyles.$primary;
+//       @include animation('run 3000ms infinite');
+//       border-left: 0.5rem solid $primary;
 //     }
 //   }
 // }

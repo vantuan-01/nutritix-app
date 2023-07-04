@@ -1,4 +1,4 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
+@import '../../../index.module.scss';
 
 .cartItem_table {
   border-collapse: collapse;
@@ -16,7 +16,7 @@
       th {
         text-transform: uppercase;
         font-weight: 500;
-        color: GlobalStyles.$content-text-color;
+        color: $content-text-color;
       }
     }
   }
@@ -24,7 +24,7 @@
     tr {
       td {
         font-size: 1.4rem;
-        color: GlobalStyles.$content-text-light-color;
+        color: $content-text-light-color;
         .item_del_btn {
           position: relative;
           background-color: transparent;
@@ -37,7 +37,7 @@
           &:hover {
             svg {
               path {
-                color: GlobalStyles.$primary;
+                color: $primary;
               }
             }
           }
@@ -49,7 +49,7 @@
           }
           svg {
             path {
-              color: GlobalStyles.$content-text-light-color;
+              color: $content-text-light-color;
             }
           }
         }
@@ -67,17 +67,17 @@
           display: block;
           width: 30rem;
           font-weight: 600;
-          color: GlobalStyles.$heading-text-color;
+          color: $heading-text-color;
           &:hover {
-            color: GlobalStyles.$primary;
+            color: $primary;
           }
         }
         .item_price {
-          color: GlobalStyles.$content-text-color;
+          color: $content-text-color;
         }
         .item_subtotal {
           font-weight: 600;
-          color: GlobalStyles.$heading-text-color;
+          color: $heading-text-color;
         }
       }
     }

@@ -1,5 +1,4 @@
-@use '~/components/GlobalStyles/GlobalStyles.module.scss';
-
+@import '../../index.module.scss';
 .wrapper {
   .container {
     .slider {
@@ -12,13 +11,14 @@
         flex-wrap: wrap;
         .header {
           margin-bottom: 3rem;
-          h2 {
+          h1 {
+            font-size: 3.5rem;
             text-transform: uppercase;
             text-align: center;
-            font-family: GlobalStyles.$heading-text;
+            font-family: $heading-text;
             svg {
               path {
-                color: GlobalStyles.$primary;
+                color: $primary;
               }
             }
           }
@@ -42,7 +42,7 @@
               transition: all 200ms linear;
               cursor: pointer;
               &:hover {
-                background-color: GlobalStyles.$primary;
+                background-color: $primary;
                 .item_caption {
                   color: #fff;
                   p {
@@ -62,18 +62,17 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                h2 {
-                  font-family: GlobalStyles.$heading-text;
+                h1 {
+                  font-family: $heading-text;
                   text-transform: uppercase;
                   margin-bottom: 1rem;
-                  letter-spacing: -2px;
                 }
                 p {
                   font-size: 1.4rem;
-                  font-weight: 500;
+                  font-weight: 600;
                   display: inline;
                   text-align: center;
-                  border-bottom: 0.2rem solid GlobalStyles.$primary;
+                  border-bottom: 0.2rem solid $primary;
                   text-transform: capitalize;
                 }
               }
@@ -118,14 +117,14 @@
                 p {
                   font-size: 1.4rem;
                   font-weight: 800;
-                  color: GlobalStyles.$primary;
+                  color: $primary;
                   margin-bottom: 1rem;
                 }
-                h4 {
-                  font-family: GlobalStyles.$heading-text;
-                  font-size: 2.3rem;
+                h2 {
+                  font-family: $heading-text;
+                  font-size: 3rem;
                   font-weight: 700;
-                  word-spacing: -0.3rem;
+                  line-height: 3.1rem;
                   color: #fff;
                   margin-bottom: 1.5rem;
                 }
