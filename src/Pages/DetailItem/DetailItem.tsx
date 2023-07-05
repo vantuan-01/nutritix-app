@@ -1,12 +1,15 @@
-import { Portal, Tooltip } from '~/components/Portal'
 import { faFacebookF, faLinkedinIn, faPinterestP, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
 
 import Button from '~/components/Button/Button'
+import DropDownBtn from '~/components/DropDownBtn'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
 import { Link } from 'react-router-dom'
+import { Portal } from '~/components/Portal'
+import PromoIcon from './icons/PromoIcon'
 import QuantityBtn from '~/components/QuantityBtn/QuantityBtn'
+import SlickSlider from './SlickSilder/SlickSlider'
 import Tabs from './Tabs'
 import clsx from 'clsx'
 import styles from './DetailItem.module.scss'
@@ -73,6 +76,9 @@ function DetailItem() {
                 sku: <Link to={'/'}>def689</Link>
               </div>
             </div>
+            <div className={styles.item_fast_info}>
+              <PromoIcon /> Sale 25% in cart
+            </div>
             <div className={styles.item_price}>
               <p className={styles.normal_price}>
                 <span>$</span>90.00
@@ -81,30 +87,35 @@ function DetailItem() {
                 <span>$</span>86.00
               </p>
             </div>
-            <div className={styles.item_fast_info}>
-              Nisi aspernatur facere excepturi. Iste molestias voluptatum est sit minus officia nostrum esse. Tenetur
-              vitae qui voluptas iste recusandae.
-            </div>
-            <div className={styles.item_deal_sold}>
+            {/* <div className={styles.item_deal_sold}>
               <p>
                 Sold: <span>11/25</span>
               </p>
               <div className={styles.deal_sold_progress_bar}>
                 <div className={styles.deal_sold_progress_value} style={{ width: '38.8%' }}></div>
               </div>
-            </div>
+            </div> */}
             <div className={styles.item_btns}>
-              <QuantityBtn />
-              <Button static_btn style={{ padding: '1.2rem 3rem' }}>
+              <div className={styles.item_btns_form}>
+                <p>Quantity</p>
+                <QuantityBtn />
+              </div>
+              <div className={styles.item_btns_form}>
+                <p>Flavor</p>
+                <DropDownBtn />
+              </div>
+            </div>
+            <div>
+              <Button static_btn style={{ padding: '1.2rem 0rem', fontSize: '1.6rem', marginBottom: '2rem' }}>
                 add to cart
               </Button>
             </div>
             <div className={styles.item_category}>
               Category: <Link to={'/'}>Uncategorized</Link>
             </div>
-            <div className={styles.item_tag}>
+            {/* <div className={styles.item_tag}>
               Tag: <Link to={'/'}> Wellness</Link>
-            </div>
+            </div> */}
             <div className={styles.item_share}>
               Share: <FontAwesomeIcon icon={faFacebookF} color={'#3b5998'} />
               <FontAwesomeIcon icon={faTwitter} color={'#1da1f2'} />
@@ -134,7 +145,7 @@ function DetailItem() {
               </div>
               <div className={styles.DetailItem_popup_text_price}>
                 <p>
-                  $86.00 <span>$90.00</span>
+                  <span>$90.00</span> $86.00
                 </p>
               </div>
             </div>
