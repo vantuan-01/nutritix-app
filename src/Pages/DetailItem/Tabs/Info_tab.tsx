@@ -1,18 +1,10 @@
+import Images from '~/assets'
 import styles from '../DetailItem.module.scss'
 
 function Info_tab() {
   return (
     <div className={styles.info_tab}>
-      <table>
-        <tr>
-          <th>weight</th>
-          <td>168 kg</td>
-        </tr>
-        <tr>
-          <th>Dimensions</th>
-          <td>98 × 22 × 145 cm</td>
-        </tr>
-      </table>
+      <img src={Images.home_categories_1} alt='asdas' />
     </div>
   )
 }

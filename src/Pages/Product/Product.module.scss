@@ -178,11 +178,16 @@
                   }
                 }
                 .item_name {
-                  display: block;
+                  // display: block;
                   font-size: 1.6rem;
                   font-weight: 600;
                   color: $heading-text-color;
                   margin: 0 0 0.7rem;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
                   &:hover {
                     color: $primary;
                   }
@@ -190,9 +195,20 @@
                 .item_rating {
                   display: flex;
                   align-items: center;
-                  margin: 0 0 1.3rem;
+                  margin: auto 0 1.3rem;
+                  margin-top: auto;
                   font-size: 1.1rem;
                   color: $content-text-light-color;
+                  span{
+                    line-height: 2rem;
+                  }
+                  .item_rating_star {
+                    font-size: 1.4rem;
+                  }
+                  .item_rating_number {
+                    margin-left: 1rem;
+                    font-size: 1.4rem;
+                  }
                 }
                 .item_price {
                   font-family: $content-text-heavy;
@@ -243,7 +259,7 @@
             }
           }
         }
-        .pagination_row{
+        .pagination_row {
           margin-top: 3rem;
         }
       }

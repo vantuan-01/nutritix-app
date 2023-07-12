@@ -1,14 +1,25 @@
 import { faList, faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'react'
 
 import FilterBar from './FilterBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Pagination from '~/features/Pagination/Pagination'
 import ProductItem from './ProductItem'
+import productsApi from '~/api/productsApi'
 import styles from './Product.module.scss'
-import { useState } from 'react'
 
 function Product() {
   const [isActive, setIsActive] = useState('grid')
+  const [listProducts, setListProducts] = useState([])
+  useEffect(() => {
+    fetchProduct()
+  }, [])
+
+  const fetchProduct = async () => {
+    const list = await productsApi.getAll()
+    setListProducts(list)
+  }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -36,11 +47,12 @@ function Product() {
               <p className={styles.result}>Showing 1–12 of 27 results</p>
             </div>
             <ul className={styles.right_side_products}>
-              {Array(12)
+              {/* {Array(12)
                 .fill(true)
                 .map((_, index) => (
                   <ProductItem key={index} />
-                ))}
+                ))} */}
+              {listProducts && listProducts.map((product, index) => <ProductItem product={product} key={index} />)}
             </ul>
             <div className={styles.pagination_row}>
               <Pagination />

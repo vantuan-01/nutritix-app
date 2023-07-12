@@ -1,47 +1,54 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Images from '~/assets'
-import { Link } from 'react-router-dom';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import styles from './Product.module.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react'
 
-function ProductItem() {
-  const [onSale, setOnSale] = useState(true)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Images from '~/assets'
+import { Link } from 'react-router-dom'
+import { Rate } from 'antd'
+import { faStar } from '@fortawesome/free-regular-svg-icons'
+import styles from './Product.module.scss'
+
+interface ProductItemsProps {
+  product: any
+}
+
+function ProductItem({ product }: ProductItemsProps) {
+  const [onSale, setOnSale] = useState(false)
+  useEffect(() => {
+    product.sale != 0 && setOnSale(true)
+  })
   return (
     <li className={styles.right_side_item}>
-      <div className={styles.item_block}>
-        {onSale && <span className={styles.item_onsale}>14% off</span>}
-        <Link to={'/shop/*'}>
-          <div className={styles.item_img}>
-            <img width={'30rem'} height={'30rem'} src={Images.product_1} alt='item_img' />
-          </div>
-        </Link>
-        <div className={styles.item_content}>
-          <Link to={'/'} className={styles.item_brand}>
-            Apparel
+      {product && (
+        <div className={styles.item_block}>
+          {onSale && <span className={styles.item_onsale}>14% off</span>}
+          <Link to={`/shop/${product.id}`}>
+            <div className={styles.item_img}>
+              <img width={'30rem'} height={'30rem'} src={Images.product_1} alt='item_img' />
+            </div>
           </Link>
-          <Link to={'/shop/*'} className={styles.item_name}>
-            Naturally Flavored Gold Standard 100% Whey
-          </Link>
-          <div className={styles.item_rating}>
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <span>(5)</span>
+          <div className={styles.item_content}>
+            <Link to={'/'} className={styles.item_brand}>
+              {product.brand}
+            </Link>
+            <Link to={`/shop/${product.id}`} className={styles.item_name}>
+              {product.name}
+            </Link>
+            <div className={styles.item_rating}>
+              <Rate disabled defaultValue={5} className={styles.item_rating_star} />
+              <span className={styles.item_rating_number}>(5)</span>
+            </div>
+            <div className={styles.item_price}>
+              <span className={onSale ? styles.is_sale : styles.normal_rice}>{product.price}</span>
+              {onSale && <span className={styles.sale_price}>{product.sale}</span>}
+            </div>
           </div>
-          <div className={styles.item_price}>
-            <span className={onSale ? styles.is_sale : styles.normal_rice}>$ 123</span>
-            {onSale && <span className={styles.sale_price}>$ 99</span>}
-          </div>
+          <button className={styles.item_add_btn}>
+            <span>add to cart</span>
+          </button>
         </div>
-        <button className={styles.item_add_btn}>
-          <span>add to cart</span>
-        </button>
-      </div>
+      )}
     </li>
   )
 }
 
-export default ProductItem;
+export default ProductItem

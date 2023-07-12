@@ -1,3 +1,5 @@
+import { Select, Space } from 'antd'
+
 import styles from './DropDownBtn.module.scss'
 
 interface DropDownProps {
@@ -5,14 +7,22 @@ interface DropDownProps {
 }
 
 function DropDown({ value }: DropDownProps) {
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`)
+  }
   return (
-    <div className={styles.dropDown_form}>
-      <select name='' id=''>
-        <option value='gsdf'>asdas</option>
-        <option value='gsdf'>asdasadas</option>
-        <option value='gsdf'>asdfgas</option>
-      </select>
-    </div>
+    <Select
+      size='large'
+      defaultValue='lucy'
+      style={{ width: '100%', height: '100%' }}
+      onChange={handleChange}
+      options={[
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+        { value: 'Yiminghe', label: 'yiminghe' },
+        { value: 'disabled', label: 'Disabled', disabled: true }
+      ]}
+    />
   )
 }
 
