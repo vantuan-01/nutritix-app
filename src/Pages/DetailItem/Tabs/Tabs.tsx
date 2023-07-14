@@ -4,22 +4,21 @@ import Review_tab from './Review_tab'
 import styles from '../DetailItem.module.scss'
 import { useState } from 'react'
 
-function Tabs() {
+function Tabs({ itemInfo }: any) {
   const [tabname, setTabname] = useState('des')
-
   const chosenTab = () => {
     switch (tabname) {
       case 'des':
-        return <Description_tab />
+        return <Description_tab des={itemInfo.description} />
         break
       case 'info':
-        return <Info_tab />
+        return <Info_tab info={itemInfo.ingredients} />
         break
       case 'rev':
         return <Review_tab />
         break
       default:
-        return <Description_tab />
+        return <Description_tab des={itemInfo.description} />
         break
     }
   }

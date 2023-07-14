@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Images from '~/assets'
 import { Link } from 'react-router-dom'
 import { Rate } from 'antd'
-import { faStar } from '@fortawesome/free-regular-svg-icons'
 import { storeProductItem } from '~/features/Product/ProductSlice'
 import styles from './Product.module.scss'
 import { useAppDispatch } from '~/app/hooks'

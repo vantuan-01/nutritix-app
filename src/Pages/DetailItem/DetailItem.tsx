@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { Portal } from '~/components/Portal'
 import PromoIcon from './icons/PromoIcon'
 import QuantityBtn from '~/components/QuantityBtn/QuantityBtn'
+import { Rate } from 'antd'
 import Tabs from './Tabs'
 import clsx from 'clsx'
 import { selectProductItem } from '~/features/Product/ProductSlice'
@@ -41,11 +42,10 @@ function DetailItem() {
   const subImg = () => {
     const arrImg = [...itemInfo.subImages]
     for (const i in itemInfo.flavor) {
-      arrImg.unshift(itemInfo.flavor[i].imageUrl)
+      arrImg.push(itemInfo.flavor[i].imageUrl)
     }
     return arrImg
   }
-
 
   return (
     <>
@@ -63,47 +63,44 @@ function DetailItem() {
                       <img src={img} alt='item_sub_img' />
                     </li>
                   ))}
-                  {/* <li>
-                    <img src={Images.home_categories_1} alt='item_sub_img' />
-                  </li>
-                  <li>
-                    <img src={Images.home_categories_2} alt='item_sub_img' />
-                  </li>
-                  <li>
-                    <img src={Images.home_categories_3} alt='item_sub_img' />
-                  </li>
-                  <li>
-                    <img src={Images.home_categories_4} alt='item_sub_img' />
-                  </li> */}
                 </ul>
               </div>
               <div className={styles.DetailItem_right}>
                 <span className={styles.item_available}>
                   <span>in stock</span>
                 </span>
-                <h1 className={styles.item_name}>Naturally Flavored Gold Standard 100% Casein</h1>
+                <h1 className={styles.item_name}>{itemInfo.name}</h1>
                 <div className={styles.item_after_name}>
                   <div className={styles.item_after_name_content}>
-                    star star star star star <Link to={'/'}>(5 reviews)</Link>
+                    <Rate disabled defaultValue={5} /> <Link to={'/'}>(5 reviews)</Link>
                   </div>
                   <div className={styles.item_after_name_content}>
                     brands:
-                    <Link to={'/'}>healthy</Link>
+                    <Link to={'/'}>{itemInfo.brand}</Link>
                   </div>
-                  <div className={styles.item_after_name_content}>
+                  {/* <div className={styles.item_after_name_content}>
                     sku: <Link to={'/'}>def689</Link>
-                  </div>
+                  </div> */}
                 </div>
                 <div className={styles.item_fast_info}>
-                  <PromoIcon /> Sale 25% in cart
+                  {itemInfo.sale !== 0 && (
+                    <>
+                      <PromoIcon /> Sale {(((itemInfo.price - itemInfo.sale) * 100) / itemInfo.price).toFixed()}% in
+                      cart
+                    </>
+                  )}
                 </div>
                 <div className={styles.item_price}>
-                  <p className={styles.normal_price}>
-                    <span>$</span>90.00
+                  <p className={itemInfo.sale !== 0 ? styles.is_sale : styles.normal_price}>
+                    <span>$</span>
+                    {itemInfo.price}
                   </p>
-                  <p className={styles.sale_price}>
-                    <span>$</span>86.00
-                  </p>
+                  {itemInfo.sale !== 0 && (
+                    <p className={styles.sale_price}>
+                      <span>$</span>
+                      {itemInfo.sale}
+                    </p>
+                  )}
                 </div>
                 {/* <div className={styles.item_deal_sold}>
                 <p>
@@ -120,7 +117,7 @@ function DetailItem() {
                   </div>
                   <div className={styles.item_btns_form}>
                     <p>Flavor</p>
-                    <DropDownBtn />
+                    <DropDownBtn value={itemInfo.flavor} />
                   </div>
                 </div>
                 <div>
@@ -129,7 +126,7 @@ function DetailItem() {
                   </Button>
                 </div>
                 <div className={styles.item_category}>
-                  Category: <Link to={'/'}>Uncategorized</Link>
+                  Category: <Link to={'/'}>{itemInfo.category}</Link>
                 </div>
                 {/* <div className={styles.item_tag}>
                 Tag: <Link to={'/'}> Wellness</Link>
@@ -143,7 +140,7 @@ function DetailItem() {
               </div>
             </div>
             <div className={styles.DetailItem_container_tabs}>
-              <Tabs />
+              <Tabs itemInfo={itemInfo} />
             </div>
           </div>
           <Portal id='slideOutUp'>
@@ -155,16 +152,15 @@ function DetailItem() {
             >
               <div className={styles.DetailItem_popup_content}>
                 <div className={styles.DetailItem_popup_img}>
-                  <img src={Images.product_1} alt='item#' />
+                  <img src={itemInfo.imageUrl} alt='item#' />
                 </div>
                 <div className={styles.DetailItem_popup_text}>
                   <div className={styles.DetailItem_popup_text_header}>
-                    You are viewing: <span>Naturally Flavored Gold Standard 100% Casein</span>
+                    You are viewing: <span>{itemInfo.name}</span>
                   </div>
                   <div className={styles.DetailItem_popup_text_price}>
-                    <p>
-                      <span>$90.00</span> $86.00
-                    </p>
+                    <p className={itemInfo.sale == 0 ? styles.normal_price : styles.is_sale}>{itemInfo.price}</p>
+                    {itemInfo.sale !== 0 && <span className={styles.sale_price}>{itemInfo.sale}</span>}
                   </div>
                 </div>
                 <div className={styles.DetailItem_popup_btn}>

@@ -7,21 +7,25 @@ interface DropDownProps {
 }
 
 function DropDown({ value }: DropDownProps) {
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`)
+  const renderOptions = () => {
+    if (value) {
+      const options = []
+      for (const i in value) {
+        options.unshift({ value: value[i].flavorName, label: value[i].flavorName })
+      }
+      return options
+    } else if (!value) {
+      return
+    }
   }
+
   return (
     <Select
       size='large'
-      defaultValue='lucy'
+      defaultValue={value && value.length !== 0 ? value[0].flavorName : 'No Flavor'}
+      disabled={value.length === 0 && true}
       style={{ width: '100%', height: '100%' }}
-      onChange={handleChange}
-      options={[
-        { value: 'jack', label: 'Jack' },
-        { value: 'lucy', label: 'Lucy' },
-        { value: 'Yiminghe', label: 'yiminghe' },
-        { value: 'disabled', label: 'Disabled', disabled: true }
-      ]}
+      options={renderOptions()}
     />
   )
 }

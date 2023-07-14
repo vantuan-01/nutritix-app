@@ -34,10 +34,9 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          // background-color: #f4f4f4;
-          padding: 10rem;
           img {
             height: 100%;
+            width: 100%;
             object-fit: cover;
           }
         }
@@ -106,6 +105,9 @@
             text-transform: capitalize;
             color: $content-text-light-color;
             margin-bottom: 0.7rem;
+            display: flex;
+            justify-content: end;
+            align-items: center;
             a {
               margin-left: 0.5rem;
               text-transform: none;
@@ -126,13 +128,17 @@
           align-items: flex-end;
           line-height: 1;
           margin-bottom: 2rem;
+          font-size: 2.8rem;
           .normal_price {
-            font-size: 2.5rem;
+            color: $heading-text-color;
+          }
+          //using when item sale
+          .is_sale {
+            font-size: 2rem;
             color: $content-text-light-color;
             text-decoration: line-through;
           }
           .sale_price {
-            font-size: 3rem;
             font-weight: 500;
             color: $green;
             margin-left: 2rem;
@@ -177,7 +183,7 @@
           display: flex;
           align-items: center;
           .item_btns_form {
-            &:last-child{
+            &:last-child {
               flex: 1;
             }
             p {
@@ -233,7 +239,7 @@
           }
           .active_btn {
             color: $heading-text-color;
-            border-bottom: .3rem solid $primary;
+            border-bottom: 0.3rem solid $primary;
           }
         }
         .tabs_body {
@@ -242,18 +248,8 @@
             color: $content-text-color;
           }
           .info_tab {
-            table {
-              width: 100%;
-              border-collapse: collapse;
-              tr {
-                th,
-                td {
-                  padding: 1.4rem 2rem;
-                  border: 0.1rem solid $border-color;
-                  text-align: left;
-                  text-transform: capitalize;
-                }
-              }
+            li {
+              list-style: square;
             }
           }
           .review_tab {
@@ -336,15 +332,22 @@
         }
       }
       .DetailItem_popup_text_price {
-        p {
-          font-size: 1.4rem;
+        display: flex;
+        align-items: end;
+        .normal_price {
           color: $primary;
-          span {
-            font-size: 1.2rem;
-            color: $content-text-light-color;
-            text-decoration: line-through;
-            margin-right: 1rem;
-          }
+        }
+        //using when item sale
+        .is_sale {
+          font-size: 1.5rem;
+          color: $content-text-light-color;
+          text-decoration: line-through;
+        }
+        .sale_price {
+          display: inline-block;
+          font-weight: 600;
+          color: $green;
+          margin-left: 1rem;
         }
       }
     }
