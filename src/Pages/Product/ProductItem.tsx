@@ -5,7 +5,9 @@ import Images from '~/assets'
 import { Link } from 'react-router-dom'
 import { Rate } from 'antd'
 import { faStar } from '@fortawesome/free-regular-svg-icons'
+import { storeProductItem } from '~/features/Product/ProductSlice'
 import styles from './Product.module.scss'
+import { useAppDispatch } from '~/app/hooks'
 
 interface ProductItemsProps {
   product: any
@@ -13,6 +15,7 @@ interface ProductItemsProps {
 
 function ProductItem({ product }: ProductItemsProps) {
   const [onSale, setOnSale] = useState(false)
+  const dispatch = useAppDispatch()
   useEffect(() => {
     product.sale != 0 && setOnSale(true)
   })
@@ -20,10 +23,14 @@ function ProductItem({ product }: ProductItemsProps) {
     <li className={styles.right_side_item}>
       {product && (
         <div className={styles.item_block}>
-          {onSale && <span className={styles.item_onsale}>14% off</span>}
-          <Link to={`/shop/${product.id}`}>
+          {onSale && (
+            <span className={styles.item_onsale}>
+              {(((product.price - product.sale) * 100) / product.price).toFixed()}% off
+            </span>
+          )}
+          <Link to={`/shop/${product.id}`} onClick={() => dispatch(storeProductItem(product))}>
             <div className={styles.item_img}>
-              <img width={'30rem'} height={'30rem'} src={Images.product_1} alt='item_img' />
+              <img src={product.imageUrl} alt='item_img' />
             </div>
           </Link>
           <div className={styles.item_content}>
