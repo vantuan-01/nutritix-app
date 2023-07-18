@@ -1,24 +1,40 @@
+import { Link, useParams } from 'react-router-dom'
 import { faFacebookF, faLinkedinIn, faPinterestP, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
 
 import Button from '~/components/Button/Button'
 import DropDownBtn from '~/components/DropDownBtn'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Images from '~/assets'
-import { Link } from 'react-router-dom'
 import { Portal } from '~/components/Portal'
 import PromoIcon from './icons/PromoIcon'
 import QuantityBtn from '~/components/QuantityBtn/QuantityBtn'
 import { Rate } from 'antd'
 import Tabs from './Tabs'
 import clsx from 'clsx'
-import { selectProductItem } from '~/features/Product/ProductSlice'
+import productsApi from '~/api/productsApi'
 import styles from './DetailItem.module.scss'
-import { useAppSelector } from '~/app/hooks'
+
+// interface DetailItemDrops {
+//   id: number
+//   brand: string
+//   category: string
+//   name: string
+//   price: number
+//   sale: number
+//   flavor: []
+//   description: string
+//   ingredients: []
+//   subImages: []
+// }
 
 function DetailItem() {
+  const itemId = useParams()
   const [isShrink, setIsShrink] = useState(false)
-  const itemInfo = useAppSelector(selectProductItem)
+  const [itemInfo, setItemInfo] = useState<any>()
+  useEffect(() => {
+    fetchProductItems()
+  }, [])
+
   useEffect(() => {
     const listenToScroll = () => {
       setIsShrink(() => {
@@ -38,6 +54,11 @@ function DetailItem() {
       document.removeEventListener('scroll', listenToScroll)
     }
   }, [])
+
+  const fetchProductItems = async () => {
+    const data = await productsApi.getSingle(itemId.id)
+    setItemInfo(data)
+  }
 
   const subImg = () => {
     const arrImg = [...itemInfo.subImages]

@@ -5,12 +5,16 @@ import FilterBar from './FilterBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Pagination from '~/features/Pagination/Pagination'
 import ProductItem from './ProductItem'
+import { ProductSaga } from '~/features/Product/ProductSaga'
 import productsApi from '~/api/productsApi'
+import { selectProductItem } from '~/features/Product/ProductSlice'
 import styles from './Product.module.scss'
+import { useAppSelector } from '~/app/hooks'
 
 function Product() {
   const [isActive, setIsActive] = useState('grid')
   const [listProducts, setListProducts] = useState([])
+
   useEffect(() => {
     fetchProduct()
   }, [])

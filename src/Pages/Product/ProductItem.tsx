@@ -25,7 +25,7 @@ function ProductItem({ product }: ProductItemsProps) {
               {(((product.price - product.sale) * 100) / product.price).toFixed()}% off
             </span>
           )}
-          <Link to={`/shop/${product.id}`} onClick={() => dispatch(storeProductItem(product))}>
+          <Link to={`/shop/${product.id}`}>
             <div className={styles.item_img}>
               <img src={product.imageUrl} alt='item_img' />
             </div>
