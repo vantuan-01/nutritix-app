@@ -15,12 +15,18 @@
       background-color: $primary;
       color: #fff;
     }
+  }
+  .pagination_left_btn,
+  .pagination_right_btn {
     &:disabled {
-      border-color: $primary;
-      background-color: $primary;
-      color: #fff;
       cursor: default;
+      &:hover {
+        border: 0.1rem solid $border-color;
+        background-color: #fff;
+        color: $content-text-light-color;
+      }
     }
+    
   }
   .button_active {
     border-color: $primary;

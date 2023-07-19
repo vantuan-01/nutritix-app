@@ -10,7 +10,12 @@ const productsApi = {
     const url = `/product/products/${id}`
     const response = axiosClient.get(url).then((res) => res.data)
     return response
-  }
+  },
+  getByPage(_page: number){
+    const url = `/product/products?_page=${_page}&_limit=9`
+    const response = axiosClient.get(url).then((res) => res.data)
+    return response
+  }  
 }
 
 export default productsApi
