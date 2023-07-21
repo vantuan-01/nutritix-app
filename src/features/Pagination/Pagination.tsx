@@ -1,11 +1,11 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { selectPagination, setPagination } from '../Product/ProductSlice'
+import { selectPagination, setPagination } from './PaginationSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
-import { useEffect, useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import productsApi from '~/api/productsApi'
 import styles from './Pagination.module.scss'
+import { useEffect } from 'react'
 
 function Pagination() {
   const dispatch = useAppDispatch()

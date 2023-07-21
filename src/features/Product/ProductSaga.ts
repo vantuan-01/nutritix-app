@@ -21,7 +21,7 @@ function* fetchIncrease(): Generator {
 
 function* fetchProductData() {
   try {
-    yield all([call(fetchAllProducts), call(fetchIncrease)])
+    yield all([ call(fetchIncrease)])
   } catch (error) {
     console.log('call api failed', error)
   }

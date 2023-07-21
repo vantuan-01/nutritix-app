@@ -1,8 +1,11 @@
+import { selectPagination } from '../Pagination/PaginationSlice'
+import { useAppSelector } from '~/app/hooks'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 function BackToTop({ children }: any) {
   const location = useLocation()
+  const currentPage = useAppSelector(selectPagination)
   useEffect(() => {
     // when change route
     window.scrollTo(0, 0)
@@ -10,7 +13,7 @@ function BackToTop({ children }: any) {
     window.onbeforeunload = () => {
       window.scrollTo(0, 0)
     }
-  }, [location])
+  }, [location, currentPage])
 
   return <>{children}</>
 }

@@ -1,5 +1,3 @@
-import { selectPagination, storeProductItem } from '~/features/Product/ProductSlice'
-import { useAppDispatch, useAppSelector } from '~/app/hooks'
 import { useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
@@ -7,16 +5,23 @@ import { Rate } from 'antd'
 import styles from './Product.module.scss'
 
 interface ProductItemsProps {
-  product: any
+  product: {
+    id: number
+    brand: string
+    category: string
+    name: string
+    price: number
+    sale: number
+    imageUrl: string
+  }
 }
 
 function ProductItem({ product }: ProductItemsProps) {
   const [onSale, setOnSale] = useState(false)
-  const dispatch = useAppDispatch()
-  const selectPage = useAppSelector(selectPagination)
+
   useEffect(() => {
-    product.sale != 0 && setOnSale(true)
-  })
+    product.sale !== 0 ? setOnSale(true) : setOnSale(false)
+  }, [product.sale, onSale])
   return (
     <li className={styles.right_side_item}>
       {product && (
@@ -26,7 +31,7 @@ function ProductItem({ product }: ProductItemsProps) {
               {(((product.price - product.sale) * 100) / product.price).toFixed()}% off
             </span>
           )}
-          <Link to={`/shop/${selectPage._page}/${product.id}`}>
+          <Link to={`/shops/${product.id}`}>
             <div className={styles.item_img}>
               <img src={product.imageUrl} alt='item_img' />
             </div>
@@ -35,7 +40,7 @@ function ProductItem({ product }: ProductItemsProps) {
             <Link to={'/'} className={styles.item_brand}>
               {product.brand}
             </Link>
-            <Link to={`/shop/${selectPage._page}/${product.id}`} className={styles.item_name}>
+            <Link to={`/shop/${product.id}`} className={styles.item_name}>
               {product.name}
             </Link>
             <div className={styles.item_rating}>

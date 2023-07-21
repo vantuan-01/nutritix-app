@@ -5,21 +5,13 @@ import { RootState } from '~/app/store'
 interface ProductSliceState {
   productItem: any
   phone: number
-  pagination: {
-    _page: number
-    _limit: number
-    _totalRows: number
-  }
+  isLoading: boolean
 }
 
 const initialState: ProductSliceState = {
   productItem: {},
   phone: 0,
-  pagination: {
-    _page: 1,
-    _limit: 10,
-    _totalRows: 1
-  }
+  isLoading: false
 }
 
 export const ProductSlice = createSlice({
@@ -28,22 +20,21 @@ export const ProductSlice = createSlice({
   reducers: {
     storeProductItem: (state, action: PayloadAction<object>) => {
       state.productItem = action.payload
-      console.log('sliceitem', state.productItem)
+      // console.log('sliceitem', state.productItem)
     },
     increasement: (state, action: PayloadAction<number>) => {
       state.phone = action.payload
-      console.log('phone', state.phone)
+      // console.log('phone', state.phone)
     },
-    setPagination: (state, action: PayloadAction<any>) => {
-      state.pagination = action.payload
-      console.log('page slice', state.pagination)
-    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload
+    }
   }
 })
 
-export const { storeProductItem, increasement, setPagination } = ProductSlice.actions
+export const { storeProductItem, increasement, setLoading } = ProductSlice.actions
 
 export const selectProductItem = (state: RootState) => state.ProductSlice.productItem
 export const selectvalue = (state: RootState) => state.ProductSlice.phone
-export const selectPagination = (state: RootState) => state.ProductSlice.pagination
+export const selectLoading = (state: RootState) => state.ProductSlice.isLoading
 export const ProductSliceReducer = ProductSlice.reducer
