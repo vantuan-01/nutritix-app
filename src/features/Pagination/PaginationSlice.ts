@@ -13,7 +13,7 @@ interface PaginationSliceState {
 const initialState: PaginationSliceState = {
   pagination: {
     _page: 1,
-    _limit: 10,
+    _limit: 9,
     _totalRows: 1
   }
 }
@@ -24,7 +24,7 @@ export const PaginationSlice = createSlice({
   reducers: {
     setPagination: (state, action: PayloadAction<any>) => {
       state.pagination = action.payload
-      // console.log('page slice', state.pagination)
+      console.log('page slice', state.pagination)
     }
   }
 })

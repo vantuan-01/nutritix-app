@@ -46,11 +46,16 @@
                 padding-bottom: 1.5rem;
                 border-bottom: 0.1rem solid #e8e8e8;
                 color: $content-text-light-color;
-                a {
+                button {
+                  flex: 1;
+                  text-align: left;
                   text-transform: capitalize;
-                  text-align: center;
+                  font-size: 1.5rem;
                   font-weight: 600;
                   color: $content-text-light-color;
+                  background-color: transparent;
+                  border: none;
+                  outline: none;
                   &::before {
                     content: ' ';
                     display: inline-block;

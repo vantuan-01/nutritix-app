@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '~/app/hooks'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import productsApi from '~/api/productsApi'
+import { selectFilterString } from '../Product/ProductSlice'
 import styles from './Pagination.module.scss'
 import { useEffect } from 'react'
 
@@ -12,11 +13,16 @@ function Pagination() {
   const pagination = useAppSelector(selectPagination)
   const pageNums = []
   const totalPages = Math.ceil(pagination._totalRows / pagination._limit)
-
+  const filterString = useAppSelector(selectFilterString)
   useEffect(() => {
     const fetchPaginate = async () => {
-      const data = await productsApi.getByPage(pagination._page)
-      dispatch(setPagination(data.pagination))
+      if (filterString === '') {
+        const data = await productsApi.getByPage(pagination._page)
+        dispatch(setPagination(data.pagination))
+      } else if (filterString) {
+        const data = await productsApi.getFillterByCategory(filterString, pagination._page)
+        dispatch(setPagination(data.pagination))
+      }
     }
     fetchPaginate()
   }, [])

@@ -1,5 +1,5 @@
 import { faList, faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
-import { selectLoading, setLoading } from '~/features/Product/ProductSlice'
+import { selectLoading, selectProductItem, setLoading, setProductList } from '~/features/Product/ProductSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
 import { useEffect, useState } from 'react'
 
@@ -14,10 +14,10 @@ import styles from './Product.module.scss'
 
 function Product() {
   const [isActive, setIsActive] = useState('grid')
-  const [listProducts, setListProducts] = useState([])
   const dispatch = useAppDispatch()
   const isLoading = useAppSelector(selectLoading)
   const currentPage = useAppSelector(selectPagination)
+  const productList = useAppSelector(selectProductItem)
 
   useEffect(() => {
     fetchProduct()
@@ -25,11 +25,13 @@ function Product() {
 
   const fetchProduct = async () => {
     dispatch(setLoading(true))
+    document.body.style.overflow = 'hidden'
     try {
       const list = await productsApi.getByPage(currentPage._page)
       if (list) {
-        setListProducts(list.data)
+        dispatch(setProductList(list.data))
         dispatch(setLoading(false))
+        document.body.style.overflow = ''
       }
     } catch (error) {
       console.log(error)
@@ -70,7 +72,9 @@ function Product() {
                 .map((_, index) => (
                   <ProductItem key={index} />
                 ))} */}
-                {listProducts && listProducts.map((product, index) => <ProductItem product={product} key={index} />)}
+                {productList &&
+                  productList.length !== 0 &&
+                  productList.map((product: any, index: any) => <ProductItem product={product} key={index} />)}
               </ul>
               <div className={styles.pagination_row}>
                 <Pagination />

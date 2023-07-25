@@ -9,8 +9,8 @@ import Product from '~/Pages/Product'
 
 const configroutes = {
   home: '/',
-  shops: '/shops',
-  shop: '/shops/:id',
+  shops: '/shop',
+  shop: '/shop/:id',
   cart: '/cart',
   checkout: '/checkout',
   about: '/about',
