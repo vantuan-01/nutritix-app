@@ -49,6 +49,7 @@ function Header() {
                 <li key={index}>
                   <NavLink
                     end
+                    reloadDocument
                     to={link.path}
                     className={(nav) =>
                       nav.isActive
@@ -68,7 +69,7 @@ function Header() {
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
             </form>
-          {/* <SearchResult /> */}
+            {/* <SearchResult /> */}
           </div>
           <div className={styles.user_group}>
             <div className={styles.user_account}>

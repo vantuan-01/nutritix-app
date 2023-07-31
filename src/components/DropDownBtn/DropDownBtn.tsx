@@ -11,7 +11,7 @@ function DropDown({ value }: DropDownProps) {
     if (value) {
       const options = []
       for (const i in value) {
-        options.unshift({ value: value[i].flavorName, label: value[i].flavorName })
+        options.push({ value: value[i].flavorName, label: value[i].flavorName })
       }
       return options
     } else if (!value) {

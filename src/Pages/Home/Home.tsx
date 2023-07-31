@@ -1,11 +1,18 @@
 import Button from '~/components/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/assets'
+import { Link } from 'react-router-dom'
 import Slider from '~/components/Slider'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { setFilter } from '~/features/Product/ProductSlice'
 import styles from './Home.module.scss'
+import { useAppDispatch } from '~/app/hooks'
 
 function Home() {
+  const dispatch = useAppDispatch()
+  const handleFilter = (value: string) => {
+    dispatch(setFilter({ type: 'category', name: value }))
+  }
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -23,7 +30,7 @@ function Home() {
             </div>
             <div className={styles.category}>
               <div className={styles.category_container}>
-                <div className={styles.category_item}>
+                <Link to={`/shop`} className={styles.category_item} onClick={() => handleFilter('whey protein')}>
                   <div className={styles.item_caption}>
                     <h1>build your strength</h1>
                     <p>get muscles</p>
@@ -31,8 +38,8 @@ function Home() {
                   <div className={styles.item_img}>
                     <img src={Images.home_categories_1} alt='img_item' />
                   </div>
-                </div>
-                <div className={styles.category_item}>
+                </Link>
+                <Link to={`/shop`} className={styles.category_item} onClick={() => handleFilter('fat burners')}>
                   <div className={styles.item_caption}>
                     <h1>build your burn</h1>
                     <p>get cut</p>
@@ -40,8 +47,8 @@ function Home() {
                   <div className={styles.item_img}>
                     <img src={Images.home_categories_2} alt='img_item' />
                   </div>
-                </div>
-                <div className={styles.category_item}>
+                </Link>
+                <Link to={`/shop`} className={styles.category_item} onClick={() => handleFilter('vitamin')}>
                   <div className={styles.item_caption}>
                     <h1>build your fitness</h1>
                     <p>get fit</p>
@@ -49,8 +56,8 @@ function Home() {
                   <div className={styles.item_img}>
                     <img src={Images.home_categories_3} alt='img_item' />
                   </div>
-                </div>
-                <div className={styles.category_item}>
+                </Link>
+                <Link to={`/shop`} className={styles.category_item} onClick={() => handleFilter('bcaa')}>
                   <div className={styles.item_caption}>
                     <h1>build your performance</h1>
                     <p>get powerful</p>
@@ -58,7 +65,7 @@ function Home() {
                   <div className={styles.item_img}>
                     <img src={Images.home_categories_4} alt='img_item' />
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
             <div className={styles.ads}>

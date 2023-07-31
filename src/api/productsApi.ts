@@ -16,8 +16,8 @@ const productsApi = {
     const response = axiosClient.get(url).then((res) => res.data)
     return response
   },
-  getFilterByCategory(filterType: string, filterName: string, page: number, _sort?: string) {
-    const url = `/product/products?_page=${page}&_limit=9&${filterType}=${filterName}&_sort=${_sort}`
+  getFilterByCategory(filterType: string, filterName: string, page: number, ortherPath?: string) {
+    const url = `/product/products?_page=${page}&_limit=9&${filterType}=${filterName}&${ortherPath}`
     const response = axiosClient.get(url).then((res) => res.data)
     return response
   }
