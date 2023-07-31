@@ -5,13 +5,19 @@ import { RootState } from '~/app/store'
 interface ProductSliceState {
   productList: any
   isLoading: boolean
-  filterString: string
+  filterString: {
+    type: string
+    name: string
+  }
 }
 
 const initialState: ProductSliceState = {
   productList: [],
   isLoading: false,
-  filterString: ''
+  filterString: {
+    type: "",
+    name: ""
+  }
 }
 
 export const ProductSlice = createSlice({
@@ -20,13 +26,15 @@ export const ProductSlice = createSlice({
   reducers: {
     setProductList: (state, action: PayloadAction<object>) => {
       state.productList = action.payload
-      console.log('productList:', state.productList)
+      // console.log('productList:', state.productList)
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload
     },
-    setFilter: (state, action: PayloadAction<string>) => {
+    setFilter: (state, action: PayloadAction<any>) => {
       state.filterString = action.payload
+      // console.log('filter name:', state.filterString);
+      
     }
   }
 })

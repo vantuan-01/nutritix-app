@@ -5,9 +5,6 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import productsApi from '~/api/productsApi'
 
 // eslint-disable-next-line require-yield
-
-// eslint-disable-next-line require-yield
-
 function* fetchAllProducts(): Generator {
   const data: any = yield call(productsApi.getAll)
   console.log('fetchAllProducts running')

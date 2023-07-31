@@ -74,6 +74,16 @@
                   }
                 }
                 span {
+                  //watting for number
+                }
+              }
+              //clicked filter styles
+              .item_clicked {
+                button {
+                  color: $heading-text-color;
+                  &::before {
+                    background-color: $primary;
+                  }
                 }
               }
             }

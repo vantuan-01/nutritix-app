@@ -1,5 +1,11 @@
 import { faList, faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
-import { selectLoading, selectProductItem, setLoading, setProductList } from '~/features/Product/ProductSlice'
+import {
+  selectFilterString,
+  selectLoading,
+  selectProductItem,
+  setLoading,
+  setProductList
+} from '~/features/Product/ProductSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
 import { useEffect, useState } from 'react'
 
@@ -18,10 +24,15 @@ function Product() {
   const isLoading = useAppSelector(selectLoading)
   const currentPage = useAppSelector(selectPagination)
   const productList = useAppSelector(selectProductItem)
+  const filterString = useAppSelector(selectFilterString)
 
   useEffect(() => {
-    fetchProduct()
-  }, [currentPage._page])
+    if (filterString.name !== '') {
+      fetchProductByFilter()
+    } else {
+      fetchProduct()
+    }
+  }, [currentPage._page, filterString])
 
   const fetchProduct = async () => {
     dispatch(setLoading(true))
@@ -37,6 +48,22 @@ function Product() {
       console.log(error)
     }
   }
+
+  const fetchProductByFilter = async () => {
+    dispatch(setLoading(true))
+    document.body.style.overflow = 'hidden'
+    try {
+      const list = await productsApi.getFilterByCategory(filterString.type, filterString.name, currentPage._page)
+      if (list) {
+        dispatch(setProductList(list.data))
+        dispatch(setLoading(false))
+        document.body.style.overflow = ''
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   if (isLoading) {
     return <Loading />
   } else
@@ -64,7 +91,7 @@ function Product() {
                     <option value='most rating'>most rating</option>
                   </select>
                 </div>
-                <p className={styles.result}>Showing 1–12 of 27 results</p>
+                {/* <p className={styles.result}>Showing 1–12 of 27 results</p> */}
               </div>
               <ul className={styles.right_side_products}>
                 {/* {Array(12)

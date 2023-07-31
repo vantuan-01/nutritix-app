@@ -24,7 +24,7 @@ export const PaginationSlice = createSlice({
   reducers: {
     setPagination: (state, action: PayloadAction<any>) => {
       state.pagination = action.payload
-      console.log('page slice', state.pagination)
+      // console.log('page slice', state.pagination)
     }
   }
 })

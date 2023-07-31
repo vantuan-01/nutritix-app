@@ -11,13 +11,13 @@ const productsApi = {
     const response = axiosClient.get(url).then((res) => res.data)
     return response
   },
-  getByPage(_page: number) {
-    const url = `/product/products?_page=${_page}&_limit=9`
+  getByPage(_page: number, _sort?: string) {
+    const url = `/product/products?_page=${_page}&_limit=9&_sort=${_sort}`
     const response = axiosClient.get(url).then((res) => res.data)
     return response
   },
-  getFillterByCategory(filterName: string, page: number) {
-    const url = `/product/products?_page=${page}&_limit=9&category=${filterName}`
+  getFilterByCategory(filterType: string, filterName: string, page: number, _sort?: string) {
+    const url = `/product/products?_page=${page}&_limit=9&${filterType}=${filterName}&_sort=${_sort}`
     const response = axiosClient.get(url).then((res) => res.data)
     return response
   }

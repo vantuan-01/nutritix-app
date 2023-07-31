@@ -16,11 +16,13 @@ function Pagination() {
   const filterString = useAppSelector(selectFilterString)
   useEffect(() => {
     const fetchPaginate = async () => {
-      if (filterString === '') {
+      if (filterString.name === '') {
         const data = await productsApi.getByPage(pagination._page)
+        // console.log("run no filter");
         dispatch(setPagination(data.pagination))
-      } else if (filterString) {
-        const data = await productsApi.getFillterByCategory(filterString, pagination._page)
+      } else if (filterString.name !== '') {
+        const data = await productsApi.getFilterByCategory(filterString.type, filterString.name, pagination._page)
+        // console.log('run có filter')
         dispatch(setPagination(data.pagination))
       }
     }
