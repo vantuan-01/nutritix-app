@@ -2,9 +2,7 @@ import { faList, faTableCellsLarge } from '@fortawesome/free-solid-svg-icons'
 import {
   selectFilterString,
   selectLoading,
-  selectProductItem,
-  setLoading,
-  setProductList
+  selectProductList,
 } from '~/features/Product/ProductSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
 import { useEffect, useState } from 'react'
@@ -14,7 +12,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from '~/components/Loading'
 import Pagination from '~/features/Pagination/Pagination'
 import ProductItem from './ProductItem'
-import productsApi from '~/api/productsApi'
 import { selectPagination } from '~/features/Pagination/PaginationSlice'
 import styles from './Product.module.scss'
 
@@ -23,46 +20,16 @@ function Product() {
   const dispatch = useAppDispatch()
   const isLoading = useAppSelector(selectLoading)
   const currentPage = useAppSelector(selectPagination)
-  const productList = useAppSelector(selectProductItem)
+  const productList = useAppSelector(selectProductList)
   const filterString = useAppSelector(selectFilterString)
 
   useEffect(() => {
     if (filterString.name !== '') {
-      fetchProductByFilter()
+      dispatch({ type: 'fetchProductSaga' })
     } else {
-      fetchProduct()
+      dispatch({ type: 'fetchProductByFilterSaga' })
     }
   }, [currentPage._page, filterString])
-
-  const fetchProduct = async () => {
-    dispatch(setLoading(true))
-    document.body.style.overflow = 'hidden'
-    try {
-      const list = await productsApi.getByPage(currentPage._page)
-      if (list) {
-        dispatch(setProductList(list.data))
-        dispatch(setLoading(false))
-        document.body.style.overflow = ''
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const fetchProductByFilter = async () => {
-    dispatch(setLoading(true))
-    document.body.style.overflow = 'hidden'
-    try {
-      const list = await productsApi.getFilterByCategory(filterString.type, filterString.name, currentPage._page)
-      if (list) {
-        dispatch(setProductList(list.data))
-        dispatch(setLoading(false))
-        document.body.style.overflow = ''
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   if (isLoading) {
     return <Loading />

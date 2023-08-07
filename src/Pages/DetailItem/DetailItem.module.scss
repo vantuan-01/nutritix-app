@@ -102,20 +102,22 @@
           display: flex;
           gap: 4rem;
           .item_after_name_content {
-            text-transform: capitalize;
-            color: $content-text-light-color;
-            margin-bottom: 0.7rem;
             display: flex;
             justify-content: end;
-            align-items: center;
+            align-items: end;
+            text-transform: capitalize;
+            color: $content-text-color;
+            margin-bottom: 0.7rem;
             a {
               margin-left: 0.5rem;
               text-transform: none;
-              color: $heading-text-color;
+              color: $content-text-light-color;
               text-transform: capitalize;
+              &:hover{
+                color: $primary_hover;
+              }
             }
             &:last-child {
-              text-transform: uppercase;
               a {
                 text-transform: uppercase;
               }

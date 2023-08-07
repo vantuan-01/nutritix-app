@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { faFacebookF, faLinkedinIn, faPinterestP, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { selectLoading, setLoading } from '~/features/Product/ProductSlice'
+import { selectLoading, selectProductItem, setFilter, setLoading } from '~/features/Product/ProductSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
 import { useEffect, useState } from 'react'
 
@@ -14,31 +14,19 @@ import QuantityBtn from '~/components/QuantityBtn/QuantityBtn'
 import { Rate } from 'antd'
 import Tabs from './Tabs'
 import clsx from 'clsx'
-import productsApi from '~/api/productsApi'
+import { setPagination } from '~/features/Pagination/PaginationSlice'
 import styles from './DetailItem.module.scss'
-
-// interface DetailItemDrops {
-//   id: number
-//   brand: string
-//   category: string
-//   name: string
-//   price: number
-//   sale: number
-//   flavor: []
-//   description: string
-//   ingredients: []
-//   subImages: []
-// }
 
 function DetailItem() {
   const itemId = useParams()
-  const [isShrink, setIsShrink] = useState(false)
-  const [itemInfo, setItemInfo] = useState<any>()
   const dispatch = useAppDispatch()
+  const pagination = useAppSelector(setPagination)
+  const [isShrink, setIsShrink] = useState(false)
+  const itemInfo = useAppSelector(selectProductItem)
   const isLoading = useAppSelector(selectLoading)
-
+  
   useEffect(() => {
-    fetchProductItems()
+    dispatch({ type: 'fetchProductItemsSaga', payload: itemId.id })
   }, [])
 
   useEffect(() => {
@@ -61,26 +49,30 @@ function DetailItem() {
     }
   }, [])
 
-  const fetchProductItems = async () => {
-    dispatch(setLoading(true))
-    document.body.style.overflow = 'hidden'
-    try {
-      const data = await productsApi.getSingle(itemId.id)
-      if (data) {
-        setItemInfo(data)
-        dispatch(setLoading(false))
-        document.body.style.overflow = ''
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const fetchProductItems = async () => {
+  //   dispatch(setLoading(true))
+  //   document.body.style.overflow = 'hidden'
+  //   try {
+  //     const data = await productsApi.getSingle(itemId.id)
+  //     if (data) {
+  //       setItemInfo(data)
+  //       dispatch(setLoading(false))
+  //       document.body.style.overflow = ''
+  //     }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
   const subImg = () => {
     const arrImg = [...itemInfo.subImages]
     for (const i in itemInfo.flavor) {
       arrImg.push(itemInfo.flavor[i].imageUrl)
     }
     return arrImg
+  }
+  const handleFilter = (filterType: string, filterName: string) => {
+    dispatch(setFilter({ type: filterType, name: filterName }))
+    dispatch(setPagination({ ...pagination, _page: 1 }))
   }
   if (isLoading) {
     return <Loading />
@@ -95,13 +87,14 @@ function DetailItem() {
                   <div className={styles.left_main_img}>
                     <img src={itemInfo.imageUrl} alt='item_img' />
                   </div>
-                  <ul className={styles.left_sub_img}>
-                    {subImg().map((img: string, key: any) => (
-                      <li key={key}>
-                        <img src={img} alt='item_sub_img' />
-                      </li>
-                    ))}
-                  </ul>
+                  {/* <ul className={styles.left_sub_img}>
+                    {itemInfo &&
+                      itemInfo.length !== 0 &&subImg().map((img: string, key: any) => (
+                        <li key={key}>
+                          <img src={img} alt='item_sub_img' />
+                        </li>
+                      ))}
+                  </ul> */}
                 </div>
                 <div className={styles.DetailItem_right}>
                   <span className={styles.item_available}>
@@ -114,7 +107,14 @@ function DetailItem() {
                     </div>
                     <div className={styles.item_after_name_content}>
                       brands:
-                      <Link to={'/'}>{itemInfo.brand}</Link>
+                      <Link
+                        to={'/shop'}
+                        onClick={() => {
+                          handleFilter('brand', itemInfo.brand)
+                        }}
+                      >
+                        {itemInfo.brand}
+                      </Link>
                     </div>
                     {/* <div className={styles.item_after_name_content}>
                     sku: <Link to={'/'}>def689</Link>
@@ -155,7 +155,7 @@ function DetailItem() {
                     </div>
                     <div className={styles.item_btns_form}>
                       <p>Flavor</p>
-                      <DropDownBtn value={itemInfo.flavor} />
+                      {/* <DropDownBtn value={itemInfo.flavor} /> */}
                     </div>
                   </div>
                   <div>
@@ -164,7 +164,15 @@ function DetailItem() {
                     </Button>
                   </div>
                   <div className={styles.item_category}>
-                    Category: <Link to={'/'}>{itemInfo.category}</Link>
+                    Category:{' '}
+                    <Link
+                      to={'/shop'}
+                      onClick={() => {
+                        handleFilter('category', itemInfo.category)
+                      }}
+                    >
+                      {itemInfo.category}
+                    </Link>
                   </div>
                   {/* <div className={styles.item_tag}>
                 Tag: <Link to={'/'}> Wellness</Link>
