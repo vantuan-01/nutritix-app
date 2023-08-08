@@ -25,9 +25,9 @@ function Product() {
 
   useEffect(() => {
     if (filterString.name !== '') {
-      dispatch({ type: 'fetchProductSaga' })
-    } else {
       dispatch({ type: 'fetchProductByFilterSaga' })
+    } else {
+      dispatch({ type: 'fetchProductSaga' })
     }
   }, [currentPage._page, filterString])
 

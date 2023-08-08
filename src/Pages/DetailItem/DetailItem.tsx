@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { faFacebookF, faLinkedinIn, faPinterestP, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { selectLoading, selectProductItem, setFilter, setLoading } from '~/features/Product/ProductSlice'
 import { useAppDispatch, useAppSelector } from '~/app/hooks'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Button from '~/components/Button/Button'
 import DropDownBtn from '~/components/DropDownBtn'
@@ -24,7 +24,7 @@ function DetailItem() {
   const [isShrink, setIsShrink] = useState(false)
   const itemInfo = useAppSelector(selectProductItem)
   const isLoading = useAppSelector(selectLoading)
-  
+
   useEffect(() => {
     dispatch({ type: 'fetchProductItemsSaga', payload: itemId.id })
   }, [])
@@ -49,27 +49,17 @@ function DetailItem() {
     }
   }, [])
 
-  // const fetchProductItems = async () => {
-  //   dispatch(setLoading(true))
-  //   document.body.style.overflow = 'hidden'
-  //   try {
-  //     const data = await productsApi.getSingle(itemId.id)
-  //     if (data) {
-  //       setItemInfo(data)
-  //       dispatch(setLoading(false))
-  //       document.body.style.overflow = ''
-  //     }
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
   const subImg = () => {
-    const arrImg = [...itemInfo.subImages]
+    let arrImg: any[] = []
+    if (itemInfo.subImages) {
+      arrImg = [...itemInfo.subImages]
+    }
     for (const i in itemInfo.flavor) {
       arrImg.push(itemInfo.flavor[i].imageUrl)
     }
     return arrImg
   }
+
   const handleFilter = (filterType: string, filterName: string) => {
     dispatch(setFilter({ type: filterType, name: filterName }))
     dispatch(setPagination({ ...pagination, _page: 1 }))
@@ -87,14 +77,15 @@ function DetailItem() {
                   <div className={styles.left_main_img}>
                     <img src={itemInfo.imageUrl} alt='item_img' />
                   </div>
-                  {/* <ul className={styles.left_sub_img}>
+                  <ul className={styles.left_sub_img}>
                     {itemInfo &&
-                      itemInfo.length !== 0 &&subImg().map((img: string, key: any) => (
+                      itemInfo.length !== 0 &&
+                      subImg().map((img: string, key: any) => (
                         <li key={key}>
                           <img src={img} alt='item_sub_img' />
                         </li>
                       ))}
-                  </ul> */}
+                  </ul>
                 </div>
                 <div className={styles.DetailItem_right}>
                   <span className={styles.item_available}>
@@ -155,7 +146,7 @@ function DetailItem() {
                     </div>
                     <div className={styles.item_btns_form}>
                       <p>Flavor</p>
-                      {/* <DropDownBtn value={itemInfo.flavor} /> */}
+                      <DropDownBtn value={itemInfo.flavor ? itemInfo.flavor : ''} />
                     </div>
                   </div>
                   <div>

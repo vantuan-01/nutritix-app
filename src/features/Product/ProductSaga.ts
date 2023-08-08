@@ -25,7 +25,6 @@ function* fetchProductByFilterSaga() {
   const pagination: paginationType = yield select(selectPagination)
   const filterString: filterType = yield select(selectFilterString)
   yield put(setLoading(true))
-  // yield put({ type: setLoading, true: Boolean })
   yield (document.body.style.overflow = 'hidden')
   try {
     const list: listProductType = yield call(
@@ -48,8 +47,7 @@ function* fetchProductItemsSaga(action: any) {
   yield put(setLoading(true))
   yield (document.body.style.overflow = 'hidden')
   try {
-    
-    const data: productsType = yield call(productsApi.getSingle, action)
+    const data: productsType = yield call(productsApi.getSingle, action.payload)
     if (data) {
       yield put(setProductItem(data))
       yield put(setLoading(false))

@@ -28,11 +28,11 @@ export const ProductSlice = createSlice({
   reducers: {
     setProductList: (state, action: PayloadAction<any>) => {
       state.productList = action.payload
-      // console.log('productList:', state.productList)
+      console.log('productList:', state.productList)
     },
     setProductItem: (state, action: PayloadAction<object>) => {
       state.productItem = action.payload
-      console.log('productItem:', state.productItem)
+      // console.log('productItem:', state.productItem)
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload
